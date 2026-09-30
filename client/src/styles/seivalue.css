@@ -1,0 +1,670 @@
+/* ===== SeiValue 测试 ===== */
+.sv-intro,
+.sv-quiz,
+.sv-result {
+  width: min(760px, 100%);
+  margin-inline: auto;
+  /* 关键：作为 .page-scroll（定高 flex 列）的子项，禁止收缩。
+     一旦允许收缩再叠加自身的裁剪，卡片会被压扁、下半部分被裁掉，
+     结果页就会滚不到底（表现为「测试结果显示不全」）。 */
+  flex: none;
+}
+
+.sv-subtitle {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sv-intro .btn { margin-top: 18px; }
+
+/* ---- 进度 ---- */
+.sv-progress {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin-bottom: 18px;
+}
+.sv-progress-text {
+  color: var(--text-sec);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+.sv-progress-meta {
+  color: var(--text-light);
+  font-size: 0.78rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.sv-progress-track {
+  grid-column: 1 / -1;
+  display: block;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--border);
+}
+.sv-progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--primary);
+  transition: width 0.24s ease;
+}
+
+/* ---- 题目与选项 ---- */
+.sv-question {
+  margin: 0 0 18px;
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.sv-options { display: grid; gap: 10px; }
+
+/* 选项颜色参考 8values 的绿→红档位，同时让每一项都有自己的识别色 */
+.sv-option[data-scale='stronglyAgree'] { --sv-opt: #1b5e20; }
+.sv-option[data-scale='agree'] { --sv-opt: #4caf50; }
+.sv-option[data-scale='neutral'] { --sv-opt: #949494; }
+.sv-option[data-scale='disagree'] { --sv-opt: #f44336; }
+.sv-option[data-scale='stronglyDisagree'] { --sv-opt: #b71c1c; }
+
+.sv-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--sv-opt, var(--border-strong));
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+/* 悬停只做描边，避免和"已选中"混淆：上一题的选项不会再看着像被选中 */
+.sv-option:hover {
+  border-color: var(--primary);
+}
+.sv-option:focus-visible { outline: 3px solid var(--primary-soft); outline-offset: 2px; }
+.sv-option.is-selected {
+  border-color: var(--sv-opt, var(--primary));
+  background: var(--sv-opt, var(--primary));
+  color: #fff;
+  font-weight: 800;
+}
+
+.sv-option-mark {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-strong);
+  border-radius: 50%;
+  position: relative;
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+.sv-option.is-selected .sv-option-mark {
+  border-color: #fff;
+  background: transparent;
+}
+.sv-option.is-selected .sv-option-mark::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.sv-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+/* ---- 结果：稀有度配色 ---- */
+/* 每档稀有度定义三件套：--sv-accent(顶条渐变) / --sv-accent-solid(文字色) / --sv-accent-soft(淡底) */
+.sv-result[data-rarity='normal'],
+.sv-special[data-rarity='normal'] {
+  --sv-accent: linear-gradient(90deg, var(--border-strong), var(--border-strong));
+  --sv-accent-solid: var(--text-sec);
+  --sv-accent-soft: var(--card-soft);
+}
+.sv-result[data-rarity='rare'],
+.sv-special[data-rarity='rare'] {
+  --sv-accent: linear-gradient(90deg, #4ea8ff, #7ed0ff);
+  --sv-accent-solid: #4ea8ff;
+  --sv-accent-soft: rgba(78, 168, 255, 0.12);
+}
+.sv-result[data-rarity='epic'],
+.sv-special[data-rarity='epic'] {
+  --sv-accent: linear-gradient(90deg, #8f5cff, #c08cff);
+  --sv-accent-solid: #b07cff;
+  --sv-accent-soft: rgba(176, 124, 255, 0.12);
+}
+.sv-result[data-rarity='legendary'],
+.sv-special[data-rarity='legendary'] {
+  --sv-accent: linear-gradient(90deg, #ff8a00, #ffd016, #ff8a00);
+  --sv-accent-solid: #ffb524;
+  --sv-accent-soft: rgba(255, 181, 36, 0.14);
+}
+
+/* 稀有色顶条用独立元素实现：不能用 overflow:hidden + ::before（会裁掉内容、毁掉滚动），
+   也不能用 background-image（会盖掉卡片自身的主题背景） */
+.sv-result {
+  position: relative;
+  border-color: var(--sv-accent-solid, var(--border));
+}
+.sv-accent {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--sv-accent);
+  pointer-events: none;
+}
+
+.sv-result-kicker {
+  margin: 0 0 6px;
+  color: var(--text-sec);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sv-type {
+  margin: 0 0 8px;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--sv-accent-solid, var(--text));
+}
+.sv-result[data-rarity='legendary'] .sv-type {
+  text-shadow: 0 0 22px rgba(255, 181, 36, 0.35);
+}
+.sv-result[data-rarity='legendary'] .sv-type::after {
+  content: ' ✦';
+  font-size: 0.8em;
+}
+
+.sv-rarity {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 4px 12px;
+  border: 1px solid var(--sv-accent-solid, var(--border-strong));
+  border-radius: 999px;
+  background: var(--sv-accent-soft, var(--card-soft));
+  color: var(--sv-accent-solid, var(--text-sec));
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.sv-pole-line {
+  margin: 0 0 16px;
+  color: var(--text-sec);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.sv-special {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  border: 1px dashed var(--sv-accent-solid, var(--border-strong));
+  border-radius: var(--radius-sm);
+  background: var(--sv-accent-soft, var(--card-soft));
+}
+.sv-special[data-rarity='legendary'] {
+  border-style: solid;
+  box-shadow: 0 0 24px rgba(255, 181, 36, 0.14) inset;
+}
+.sv-special-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--sv-accent-solid, var(--text));
+}
+.sv-special-desc { color: var(--text-sec); font-size: 0.85rem; }
+.sv-special-extra {
+  margin-top: 4px;
+  color: var(--text-light);
+  font-size: 0.78rem;
+}
+.sv-special-extra::before { content: '＋ '; }
+
+/* ---- 四轴：参考 8values，每个轴一对撞色，左右两段按百分比撑满整条 ---- */
+/* 注意：颜色 token 挂在 [data-axis] 上，结果页的 .sv-axis 与成绩单的
+   .sv-report-axes > li 都靠它取色；只写 .sv-axis[data-axis] 会让成绩单的横条变成透明。 */
+.sv-axis-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.sv-axis { display: grid; gap: 6px; }
+[data-axis='voice'] { --sv-left: #f44336; --sv-right: #00897b; }
+[data-axis='consume'] { --sv-left: #ff9800; --sv-right: #03a9f4; }
+[data-axis='community'] {
+  --sv-left: #ffeb3b;
+  --sv-left-ink: #3d3200;
+  --sv-right: #3f51b5;
+}
+[data-axis='interact'] {
+  --sv-left: #8bc34a;
+  --sv-left-ink: #1e2b00;
+  --sv-right: #9c27b0;
+}
+.sv-axis-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.sv-axis-name { font-weight: 700; }
+.sv-axis-value {
+  color: var(--text-sec);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+.sv-axis-bar {
+  display: flex;
+  height: 26px;
+  overflow: hidden;
+  border: 2px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--card-soft);
+}
+.sv-half {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  transition: width 0.32s ease;
+}
+.sv-half-left {
+  justify-content: flex-start;
+  border-right: 2px solid var(--border-strong);
+  background: var(--sv-left);
+  color: var(--sv-left-ink, #fff);
+}
+.sv-half-right {
+  justify-content: flex-end;
+  background: var(--sv-right);
+  color: #fff;
+}
+.sv-half.is-wide { padding-inline: 6px; }
+.sv-axis-poles {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--text-light);
+  font-size: 0.76rem;
+}
+
+.sv-description {
+  margin: 20px 0 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--sv-accent-solid, var(--border-strong));
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.sv-pole-notes {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: var(--text-sec);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ---- 推荐 ---- */
+.sv-recommend, .sv-stats { margin-top: 24px; }
+.sv-recommend h3, .sv-stats h3 {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+.sv-recommend ul { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.sv-recommend-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.sv-recommend-pole { font-weight: 700; }
+.sv-recommend-percent {
+  color: var(--text-sec);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+.sv-recommend-names { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 6px; }
+.sv-name {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card-soft);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.sv-recommend-reason { margin: 0; font-size: 0.8rem; }
+.sv-recommend-hint { margin: 12px 0 0; font-size: 0.78rem; }
+
+/* ---- 统计 ---- */
+.sv-stats ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sv-stats li {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+}
+.sv-stats li span { color: var(--text-sec); font-size: 0.76rem; }
+.sv-stats li strong { font-size: 1rem; font-variant-numeric: tabular-nums; }
+
+.sv-note { margin-top: 20px; }
+.sv-copy-failed { margin: 10px 0 0; color: var(--danger); font-size: 0.85rem; }
+
+/* ---- 翻页动效 ---- */
+@keyframes sv-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.sv-question { animation: sv-in 0.18s ease-out; }
+.sv-options { animation: sv-in 0.18s ease-out; }
+
+/* ---- 模式选择 ---- */
+.sv-modes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+  margin: 18px 0 4px;
+  padding: 0;
+  border: 0;
+}
+.sv-modes legend {
+  padding: 0 0 6px;
+  color: var(--text-sec);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.sv-mode {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+.sv-mode:hover { border-color: var(--primary); }
+.sv-mode.is-active {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+.sv-mode-name { font-weight: 800; }
+.sv-mode-desc { color: var(--text-sec); font-size: 0.82rem; line-height: 1.5; }
+.sv-mode-meta {
+  justify-self: start;
+  margin-top: 2px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--border);
+  color: var(--text-sec);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+.sv-mode-layout {
+  color: var(--text-light);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- 查分 ---- */
+.sv-query {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.sv-query h3 { margin: 0 0 6px; font-size: 0.95rem; }
+.sv-query-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.sv-query-row input {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.sv-query-row input:focus-visible { outline: 3px solid var(--primary-soft); outline-offset: 1px; }
+
+/* ---- 结果里的标签 / 成绩码 ---- */
+.sv-block-label {
+  margin: 0 0 8px;
+  color: var(--text-sec);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.sv-special-label {
+  color: var(--text-sec);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.sv-tags { display: grid; gap: 10px; margin: 0 0 20px; }
+.sv-tag {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--sv-accent-solid, var(--primary));
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--card-soft);
+}
+.sv-tag-name { font-weight: 800; }
+.sv-tag-review { color: var(--text-sec); font-size: 0.82rem; line-height: 1.6; }
+
+.sv-review {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+}
+.sv-review p { margin: 0; font-size: 0.88rem; line-height: 1.7; }
+
+.sv-code { margin-top: 22px; }
+.sv-code-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.sv-code-row code {
+  flex: 1 1 220px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+  font-size: 0.82rem;
+}
+.sv-queried {
+  margin: 0 0 8px;
+  color: var(--text-sec);
+  font-size: 0.8rem;
+}
+
+/* ---- 趣味成绩单 ---- */
+.sv-report-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: auto;
+  padding: 24px 16px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+}
+.sv-report {
+  width: min(720px, 100%);
+  padding: 22px 24px 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--text);
+}
+.sv-report-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--border);
+}
+.sv-report-head h2 { margin: 0 0 4px; font-size: 1.15rem; }
+.sv-report-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.sv-report-body { padding-top: 14px; }
+.sv-report-type {
+  margin: 0 0 4px;
+  font-size: clamp(1.2rem, 3.4vw, 1.6rem);
+  font-weight: 900;
+}
+.sv-report-rarity { margin: 0 0 14px; color: var(--text-sec); font-size: 0.82rem; }
+.sv-report-body h3 {
+  margin: 16px 0 8px;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--text-sec);
+}
+.sv-report-axes { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.sv-report-axes li {
+  display: grid;
+  grid-template-columns: 5.5em 1fr auto;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+}
+.sv-report-axis-name { font-weight: 700; }
+.sv-report-axis-bar {
+  display: flex;
+  height: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--card-soft);
+}
+.sv-report-axis-bar .sv-half-left { border-right-width: 1px; }
+.sv-report-axis-value { color: var(--text-sec); font-variant-numeric: tabular-nums; }
+.sv-report-line { margin: 0 0 6px; font-size: 0.85rem; line-height: 1.7; }
+.sv-report-footer {
+  margin: 18px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.76rem;
+}
+
+/* 打印：只保留成绩单 */
+@media print {
+  body { background: #fff; }
+  body * { visibility: hidden !important; }
+  .sv-report-overlay, .sv-report-overlay * { visibility: visible !important; }
+  .sv-report-overlay {
+    position: absolute;
+    inset: 0;
+    display: block;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+  }
+  .sv-report {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  /* 成绩单靠颜色表达倾向，打印时必须保留背景色 */
+  .sv-half, .sv-report-axis-bar, .sv-report-axis-bar .sv-half, .sv-accent, .sv-report-rarity {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sv-report-tools { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-question, .sv-options { animation: none; }
+  .sv-progress-fill, .sv-half { transition: none; }
+}
+
+@media (max-width: 640px) {
+  .sv-question { font-size: 1.05rem; }
+  /* 按钮排布改成两列网格：宽度对齐，落单的按钮占满整行，
+     避免 flex:1 1 auto 把每个按钮拉成一整行的大色块 */
+  .sv-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .sv-actions .btn {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 12px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+  }
+  .sv-actions .btn:only-child,
+  .sv-actions .btn:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  /* 窄屏：缩短标签、缩小字号，保证左右两段与百分比都完整显示 */
+  .sv-axis-head { flex-wrap: wrap; }
+  .sv-axis-value { text-align: right; }
+  .sv-axis-bar { height: 22px; }
+  .sv-half { font-size: 0.62rem; }
+  .sv-half.is-wide { padding-inline: 4px; }
+  .sv-axis-poles { flex-wrap: wrap; row-gap: 2px; font-size: 0.72rem; }
+  .sv-report-axes li { grid-template-columns: 1fr; gap: 4px; }
+  .sv-report-axis-value { text-align: right; }
+}
+
+@media (max-width: 480px) {
+  /* 窄屏竖排：输入框与按钮都满宽，不再出现半宽小按钮 */
+  .sv-query-row,
+  .sv-code-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .sv-query-row input,
+  .sv-query-row .btn,
+  .sv-code-row code,
+  .sv-code-row .btn { width: 100%; }
+  .sv-query-row .btn,
+  .sv-code-row .btn { justify-content: center; }
+  .sv-intro .btn-lg { width: 100%; }
+  .sv-mode { padding: 11px 12px; }
+  .sv-report { padding: 16px 14px 14px; }
+  .sv-report-head { flex-direction: column; align-items: stretch; }
+  .sv-report-tools {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .sv-report-tools .btn { width: 100%; }
+}
+

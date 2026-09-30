@@ -1,0 +1,661 @@
+/* ===== 你是哪个声优（你和哪位女声优最像）===== */
+.wy-intro,
+.wy-quiz,
+.wy-result {
+  width: min(820px, 100%);
+  margin-inline: auto;
+  /* 与 SeiValue 同样的原因：作为定高滚动区的子项禁止收缩，否则结果页被裁。 */
+  flex: none;
+}
+
+.wy-subtitle {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.wy-intro .btn { margin-top: 18px; }
+
+/* ---- 进度 ---- */
+.wy-progress {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin-bottom: 18px;
+}
+.wy-progress-text {
+  color: var(--text-sec);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+.wy-progress-meta {
+  color: var(--text-light);
+  font-size: 0.78rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.wy-progress-track {
+  grid-column: 1 / -1;
+  display: block;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--border);
+}
+.wy-progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary), var(--primary) 60%, #ff9ec4);
+  transition: width 0.24s ease;
+}
+
+/* ---- 题目与选项 ---- */
+.wy-question {
+  margin: 0 0 16px;
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.wy-options { display: grid; gap: 10px; }
+
+.wy-option[data-scale='stronglyAgree'] { --wy-opt: #1b5e20; }
+.wy-option[data-scale='agree'] { --wy-opt: #4caf50; }
+.wy-option[data-scale='neutral'] { --wy-opt: #949494; }
+.wy-option[data-scale='disagree'] { --wy-opt: #f44336; }
+.wy-option[data-scale='stronglyDisagree'] { --wy-opt: #b71c1c; }
+
+.wy-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--wy-opt, var(--border-strong));
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+.wy-option:hover { border-color: var(--primary); }
+.wy-option:focus-visible { outline: 3px solid var(--primary-soft); outline-offset: 2px; }
+.wy-option.is-selected {
+  border-color: var(--wy-opt, var(--primary));
+  background: var(--wy-opt, var(--primary));
+  color: #fff;
+  font-weight: 800;
+}
+.wy-option-mark {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-strong);
+  border-radius: 50%;
+  position: relative;
+  transition: border-color 0.16s ease;
+}
+.wy-option.is-selected .wy-option-mark { border-color: #fff; }
+
+.wy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* ---- 模式选择 ---- */
+.wy-modes {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0 4px;
+  padding: 0;
+  border: 0;
+}
+.wy-modes legend {
+  padding: 0;
+  color: var(--text-light);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.wy-mode {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+.wy-mode:hover { border-color: var(--primary); }
+.wy-mode.is-active {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+.wy-mode-name { font-weight: 800; }
+.wy-mode-desc { color: var(--text-sec); font-size: 0.85rem; }
+.wy-mode-meta,
+.wy-mode-layout {
+  color: var(--text-light);
+  font-size: 0.74rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- 查询成绩 ---- */
+.wy-query { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--border); }
+.wy-query h3 { margin: 0 0 6px; font-size: 0.95rem; }
+.wy-query-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.wy-query-row input {
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg, var(--card-soft));
+  color: var(--text);
+  font: inherit;
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+.wy-copy-failed { color: #f44336; font-size: 0.85rem; margin: 10px 0 0; }
+
+/* ---- 结果：主结果卡 ---- */
+.wy-result { position: relative; }
+.wy-accent {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: linear-gradient(90deg, #74e38f, #8ad4ff, #c08cff, #ff9ec4);
+}
+.wy-result[data-rarity='rare'] .wy-accent { background: linear-gradient(90deg, #8ad4ff, #c08cff); }
+.wy-result[data-rarity='epic'] .wy-accent { background: linear-gradient(90deg, #c08cff, #ff9ec4); }
+.wy-result[data-rarity='legendary'] .wy-accent { background: linear-gradient(90deg, #ffd166, #ff9ec4, #c08cff); }
+
+.wy-result-kicker {
+  margin: 0 0 4px;
+  color: var(--text-light);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.wy-queried { margin: 0 0 10px; color: var(--text-light); font-size: 0.82rem; }
+
+.wy-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 14px 0 6px;
+}
+.wy-hero-photo {
+  flex: none;
+  width: 112px;
+  height: 148px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card-soft);
+}
+.wy-hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+}
+.wy-photo-fallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(150deg, var(--primary-soft), var(--card-soft));
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 800;
+}
+.wy-hero-copy { min-width: 0; flex: 1 1 auto; }
+.wy-name {
+  margin: 0;
+  font-size: clamp(1.4rem, 3.6vw, 1.9rem);
+  line-height: 1.2;
+}
+.wy-romaji {
+  margin: 4px 0 0;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+.wy-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.wy-badge {
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.wy-badge[data-project] { border-color: currentColor; }
+.wy-badge[data-project='lovelive'] { color: #ff8fb1; }
+.wy-badge[data-project='bangdream'] { color: #8fb4ff; }
+.wy-badge[data-project='pjsk'] { color: #6fd8c6; }
+.wy-badge[data-project='idolmaster'] { color: #ffc46b; }
+.wy-badge[data-project='gakuen'] { color: #b6f08a; }
+.wy-badge[data-project='umamusume'] { color: #ff9a76; }
+.wy-badge[data-project='revuestar'] { color: #c08cff; }
+.wy-badge[data-project='d4dj'] { color: #8ad4ff; }
+.wy-chibi { margin: 10px 0 0; color: var(--text-sec); font-size: 0.86rem; }
+
+.wy-score-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 14px;
+}
+.wy-score {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+}
+.wy-verdict { font-weight: 800; }
+.wy-vibe { margin: 12px 0 0; color: var(--text-sec); line-height: 1.6; }
+
+.wy-special {
+  display: grid;
+  gap: 3px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-left: 5px solid #ffd166;
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+}
+.wy-special[data-rarity='epic'] { border-left-color: #c08cff; }
+.wy-special[data-rarity='legendary'] { border-left-color: #ff9ec4; }
+.wy-special-label {
+  color: var(--text-light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.wy-special-name { font-weight: 800; }
+.wy-special-desc { color: var(--text-sec); font-size: 0.86rem; }
+/* 彩蛋人物（带头像那种）：左边头像 + 右边名字/身份/调侃 */
+.wy-special-body { display: flex; align-items: center; gap: 12px; }
+.wy-special-photo {
+  flex: none;
+  display: block;
+  width: 52px;
+  height: 66px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card);
+}
+.wy-special-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
+.wy-special-photo > span {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: var(--card-soft);
+  color: var(--text-light);
+  font-weight: 800;
+}
+.wy-special-copy { display: grid; gap: 2px; min-width: 0; }
+.wy-special-role { color: var(--text-light); font-size: 0.74rem; font-weight: 700; }
+
+.wy-block-label {
+  margin: 0 0 8px;
+  color: var(--text-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---- 六维坐标 ---- */
+.wy-traits { margin: 22px 0 0; }
+.wy-trait { display: grid; gap: 6px; margin-bottom: 14px; }
+.wy-trait-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 0.84rem;
+}
+.wy-trait-name { font-weight: 700; }
+.wy-trait-value { color: var(--text-sec); font-variant-numeric: tabular-nums; }
+.wy-trait-track {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--border);
+}
+.wy-trait-dot {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--card, #fff);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.28);
+}
+.wy-trait-poles {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-light);
+  font-size: 0.72rem;
+}
+
+/* ---- Top 榜 ---- */
+.wy-ranking { margin: 24px 0 0; }
+.wy-rank-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.wy-rank {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+}
+
+/* 前三名：金/银/铜奖牌 + 渐层背景，第一名再抬高一级 */
+.wy-rank.is-podium { padding: 12px 14px; }
+.wy-rank.is-rank-1 {
+  border-color: color-mix(in srgb, #e9a52a 62%, var(--border));
+  background: linear-gradient(120deg, color-mix(in srgb, #e9a52a 16%, var(--card-soft)), var(--card-soft) 64%);
+  box-shadow: 0 10px 24px color-mix(in srgb, #e9a52a 20%, transparent);
+}
+.wy-rank.is-rank-2 {
+  border-color: color-mix(in srgb, #8ea6bd 60%, var(--border));
+  background: linear-gradient(120deg, color-mix(in srgb, #8ea6bd 15%, var(--card-soft)), var(--card-soft) 64%);
+}
+.wy-rank.is-rank-3 {
+  border-color: color-mix(in srgb, #c2823f 58%, var(--border));
+  background: linear-gradient(120deg, color-mix(in srgb, #c2823f 15%, var(--card-soft)), var(--card-soft) 64%);
+}
+.wy-rank-medal {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text-light);
+  font-size: 0.76rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.wy-rank.is-rank-1 .wy-rank-medal {
+  width: 30px;
+  height: 30px;
+  font-size: 0.88rem;
+  border-color: color-mix(in srgb, #e9a52a 72%, var(--border));
+  background: linear-gradient(135deg, #ffdc7a, #e9a52a);
+  color: #4a3208;
+}
+.wy-rank.is-rank-2 .wy-rank-medal {
+  border-color: color-mix(in srgb, #8ea6bd 72%, var(--border));
+  background: linear-gradient(135deg, #eef4fa, #a9bccf);
+  color: #33424f;
+}
+.wy-rank.is-rank-3 .wy-rank-medal {
+  border-color: color-mix(in srgb, #c2823f 72%, var(--border));
+  background: linear-gradient(135deg, #f3cea8, #c2823f);
+  color: #4a2f12;
+}
+.wy-rank-photo {
+  flex: none;
+  width: 46px;
+  height: 58px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card);
+}
+.wy-rank.is-rank-1 .wy-rank-photo { width: 54px; height: 68px; }
+.wy-rank.is-podium .wy-rank-photo { box-shadow: 0 4px 12px rgba(24, 40, 66, 0.16); }
+.wy-rank-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
+.wy-rank-copy { flex: 1 1 auto; min-width: 0; }
+.wy-rank-name { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 800; }
+.wy-rank.is-rank-1 .wy-rank-name { font-size: 1.04rem; }
+.wy-rank-meta { color: var(--text-light); font-size: 0.76rem; }
+.wy-rank-bar {
+  display: block;
+  height: 6px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+.wy-rank-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #74e38f, #8ad4ff);
+}
+.wy-rank.is-rank-1 .wy-rank-fill { background: linear-gradient(90deg, #ffdc7a, #e9a52a); }
+.wy-rank.is-rank-2 .wy-rank-fill { background: linear-gradient(90deg, #dbe6f1, #8ea6bd); }
+.wy-rank.is-rank-3 .wy-rank-fill { background: linear-gradient(90deg, #f3cea8, #c2823f); }
+.wy-rank-score {
+  flex: none;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+}
+.wy-rank.is-rank-1 .wy-rank-score { font-size: 1.12rem; color: color-mix(in srgb, #c2823f 80%, var(--primary)); }
+.wy-rank.is-rank-2 .wy-rank-score { color: color-mix(in srgb, #587a99 78%, var(--primary)); }
+.wy-rank.is-rank-3 .wy-rank-score { color: color-mix(in srgb, #b8722c 78%, var(--primary)); }
+.wy-rank-note { margin: 4px 0 0; color: var(--text-light); font-size: 0.72rem; }
+
+/* ---- 契合 / 反差 ---- */
+.wy-match-notes { margin: 22px 0 0; display: grid; gap: 12px; }
+.wy-match-block {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+}
+.wy-match-block[data-kind='gap'] { border-left: 5px solid #ff9a76; }
+.wy-match-block[data-kind='same'] { border-left: 5px solid #74e38f; }
+.wy-match-list { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.wy-match-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: var(--text-sec);
+}
+.wy-match-list b { color: var(--text); font-variant-numeric: tabular-nums; }
+
+.wy-contrast { margin: 22px 0 0; }
+.wy-contrast-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+}
+.wy-contrast-photo {
+  flex: none;
+  width: 52px;
+  height: 66px;
+  border-radius: 8px;
+  overflow: hidden;
+  filter: saturate(0.75);
+}
+.wy-contrast-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
+
+/* ---- 统计 / 成绩码 ---- */
+.wy-stats { margin: 24px 0 0; }
+.wy-stats ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.wy-stats li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--border);
+  font-size: 0.86rem;
+  color: var(--text-sec);
+}
+.wy-stats strong { color: var(--text); font-variant-numeric: tabular-nums; }
+
+.wy-code { margin: 22px 0 0; }
+.wy-code-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.wy-code-row code {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 9px 12px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.88rem;
+  overflow-wrap: anywhere;
+}
+.wy-note { margin: 18px 0 0; font-size: 0.8rem; }
+.wy-credit { margin: 8px 0 0; font-size: 0.74rem; }
+
+/* 分享区 */
+.wy-share {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+}
+.wy-share .btn { text-decoration: none; }
+.wy-share-qq { color: #12b7f5; border-color: #12b7f5; }
+.wy-share-qq:hover { background: #12b7f5; color: #fff; }
+.wy-share-hint { flex: 1 1 100%; margin: 0; color: var(--text-light); font-size: 0.74rem; }
+
+/* ---- 成绩单 ---- */
+.wy-report-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 16px;
+  background: rgb(0 0 0 / 0.62);
+  overflow: auto;
+}
+.wy-report {
+  width: min(720px, 100%);
+  padding: 22px 24px 28px;
+  border-radius: var(--radius);
+  background: var(--card, #fff);
+  color: var(--text);
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.35);
+}
+.wy-report-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--primary);
+}
+.wy-report-head h2 { margin: 0; font-size: 1.15rem; }
+.wy-report-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.wy-report-body { margin-top: 16px; }
+.wy-report-body h3 {
+  margin: 18px 0 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.wy-report-hero { display: flex; gap: 14px; align-items: center; }
+.wy-report-hero img {
+  width: 88px;
+  height: 116px;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 10px;
+}
+.wy-report-type { margin: 0; font-size: 1.35rem; font-weight: 800; }
+.wy-report-line { margin: 0 0 4px; font-size: 0.9rem; line-height: 1.6; }
+.wy-report-ranks { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.wy-report-ranks li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  font-size: 0.88rem;
+  align-items: center;
+}
+.wy-report-axis-bar {
+  display: inline-block;
+  width: 120px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--border);
+  position: relative;
+}
+.wy-report-axis-bar span {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  transform: translate(-50%, -50%);
+}
+.wy-report-footer { margin: 20px 0 0; font-size: 0.74rem; }
+
+@media print {
+  body * { visibility: hidden; }
+  .wy-report-overlay,
+  .wy-report-overlay * { visibility: visible; }
+  .wy-report-overlay { position: absolute; inset: 0; background: none; padding: 0; }
+  .wy-report { box-shadow: none; width: 100%; }
+  .wy-report-tools { display: none; }
+}
+
+/* ---- 窄屏 ---- */
+@media (max-width: 640px) {
+  .wy-hero { gap: 12px; }
+  .wy-hero-photo { width: 88px; height: 116px; }
+  .wy-rank { gap: 9px; padding: 9px 10px; }
+  .wy-rank-photo,
+  .wy-rank.is-rank-1 .wy-rank-photo { width: 38px; height: 48px; }
+  .wy-rank-medal,
+  .wy-rank.is-rank-1 .wy-rank-medal { width: 22px; height: 22px; font-size: 0.7rem; }
+  .wy-special-photo { width: 44px; height: 56px; }
+  .wy-query-row input { flex: 1 1 100%; }
+  .wy-report-ranks li { grid-template-columns: 1fr auto; }
+  .wy-report-axis-bar { display: none; }
+}

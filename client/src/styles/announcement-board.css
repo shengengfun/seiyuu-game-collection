@@ -1,0 +1,173 @@
+/* ===== 门户右下角公告栏 =====
+ * 与左下角的 .online-badge 对称：同样固定在底部、同样用主题变量，
+ * 所以浅色(light)与 blast 深色主题下都不用额外的覆盖规则。
+ */
+.announcement-board {
+  position: fixed;
+  right: calc(12px + env(safe-area-inset-right, 0px));
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  z-index: 30;
+  display: flex;
+  justify-content: flex-end;
+  max-width: calc(100vw - 24px);
+}
+
+/* 收起态：一颗小胶囊，和在线人数徽标同一套视觉 */
+.announcement-board-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text-sec);
+  font: inherit;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.announcement-board-toggle:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+.announcement-board-toggle:focus-visible {
+  outline: 2px solid var(--primary-strong);
+  outline-offset: 2px;
+}
+.announcement-board-count {
+  min-width: 17px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--primary-strong);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 展开态：一张小卡片，宽高都有上限，不会啃掉整页 */
+.announcement-board-panel {
+  display: flex;
+  flex-direction: column;
+  width: min(340px, calc(100vw - 24px));
+  max-height: min(60vh, 420px);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: var(--shadow-lg);
+}
+.announcement-board-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 8px 8px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card-soft);
+}
+.announcement-board-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+.announcement-board-heading > strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.announcement-board-collapse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-sec);
+  cursor: pointer;
+}
+.announcement-board-collapse:hover { background: var(--primary-soft); color: var(--text); }
+.announcement-board-collapse:focus-visible { outline: 2px solid var(--primary-strong); outline-offset: 1px; }
+
+.announcement-board-list {
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.announcement-board-list > li {
+  padding: 8px 12px 10px;
+}
+.announcement-board-list > li + li { border-top: 1px solid var(--border); }
+.announcement-board-item-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 3px;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.announcement-board-pin {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex: 0 0 auto;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+.announcement-board-item-content {
+  margin: 0;
+  color: var(--text-sec);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.announcement-board-item-date {
+  margin: 4px 0 0;
+  color: var(--text-light);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+.announcement-board-foot {
+  padding: 7px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--card-soft);
+  text-align: right;
+}
+.announcement-board-more {
+  color: var(--primary-strong);
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+.announcement-board-more:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .announcement-board { right: calc(10px + env(safe-area-inset-right, 0px)); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); }
+  .announcement-board-panel { max-height: min(52vh, 360px); }
+  .announcement-board-toggle { padding: 4px 9px; font-size: 0.7rem; }
+}
+
+/* 打印成绩单等场景不要浮层 */
+@media print {
+  .announcement-board { display: none; }
+}
