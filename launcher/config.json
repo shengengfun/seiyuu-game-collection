@@ -1,0 +1,15 @@
+{
+  "RepoRoot": "",
+  "ServerPort": 3000,
+  "ClientPort": 5173,
+  "ClientMode": "preview",
+  "NodeExe": "",
+  "TunnelMode": "service",
+  "TunnelServiceName": "Cloudflared",
+  "AutoHealTunnel": true,
+  "CloudflaredExe": "",
+  "CloudflaredArgs": "tunnel run --token-file C:\\ProgramData\\cloudflared\\token",
+  "StartServicesOnBoot": true,
+  "StartupProbeDelayMs": 1200,
+  "PublicUrl": "https://homoto-akina.top"
+}

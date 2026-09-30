@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>SeiyuuGuessLauncher</AssemblyName>
+    <RootNamespace>SeiyuuGuessLauncher</RootNamespace>
+    <Version>1.0.0</Version>
+    <Product>声优情报站启动器</Product>
+    <!-- 单文件发布时把依赖压进 exe；中文界面无需卫星资源 -->
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <EnableDefaultApplicationDefinition>true</EnableDefaultApplicationDefinition>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+    <ApplicationVisualStyles>true</ApplicationVisualStyles>
+    <ApplicationUseCompatibleTextRendering>false</ApplicationUseCompatibleTextRendering>
+  </PropertyGroup>
+
+</Project>

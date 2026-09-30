@@ -1,0 +1,49 @@
+# ==========================================================
+#  Cloudflare Tunnel 配置（手动前台调试用）
+# ----------------------------------------------------------
+#  生产环境不走这份文件：域名由 Windows 系统服务 Cloudflared 常驻托管，
+#  它的启动命令可以用 `sc qc Cloudflared` 看到，形如：
+#      cloudflared.exe tunnel run --token-file C:\ProgramData\cloudflared\token
+#
+#  这份 config.yml 只在「想在前台手动跑一个连接器、直接看日志」时用：
+#      cd D:\Seiyu-guess\cloudflared
+#      .\start-tunnel.bat
+#
+#  注意 1：token 里已经包含隧道 ID 与密钥，所以本文件不要再写 tunnel /
+#          credentials-file —— token 不是 credentials.json，把它当
+#          credentials-file 会报 "contained invalid JSON"。
+#  注意 2：token 式（后台托管）隧道的域名路由以 Cloudflare 后台为准，
+#          下面的 ingress 只是本地兜底；两者不一致时以后台为准。
+# ==========================================================
+
+# 隧道 token 文件：Cloudflare 后台 → Networks → Tunnels → 选隧道 → Configure 里可以拿到 token
+token-file: C:\ProgramData\cloudflared\token
+
+# 日志输出到文件（与服务共用 logs/ 目录）
+loglevel: info
+logfile: D:\Seiyu-guess\logs\cloudflared-cli.log
+
+# DNS 路由:把你的域名指向这个 tunnel
+# 这部分是 ingress 的路由规则,从上往下匹配
+ingress:
+  # 主域名 → 转发到本机 3000 (后端 Express,生产模式自带静态资源)
+  # 想知道当前公网实际打到哪个端口:看响应头——只有 3000 会带 helmet 那一串
+  # (Content-Security-Policy / X-DNS-Prefetch-Control / Origin-Agent-Cluster ...),
+  # vite preview(5173)只回 Cache-Control / Vary / ETag。
+  - hostname: homoto-akina.top
+    service: http://localhost:3000
+    # 透传 Host 头,让后端能识别真实访问的域名(给 CORS/TRUST_PROXY 用)
+    originRequest:
+      httpHostHeader: homoto-akina.top
+      # WebSocket 长连接超时(Socket.IO 用得到)
+      connectTimeout: 30s
+      tlsTimeout: 10s
+      tcpKeepAlive: 30s
+      noHappyEyeballs: false
+
+  # www 子域名也指向同一服务(可选,需要的话在 Cloudflare DNS 加 CNAME)
+  - hostname: www.homoto-akina.top
+    service: http://localhost:3000
+
+  # 兜底规则:其他所有未匹配的请求返回 404
+  - service: http_status:404
