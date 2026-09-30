@@ -1,0 +1,73 @@
+import type { SongQuizSong } from '../types';
+
+/**
+ * 偶像大师 · shinycolors 的猜歌曲库（抓取自 iTunes JP 区，含 30 秒试听）。
+ *
+ * 生成方式：`node --experimental-strip-types tmp/fetch-song-catalog-v2.mjs` → `node tmp/song-catalog-to-ts-v2.mjs`，不要手改。
+ * - 含小队曲与声优以角色身份演唱的个人曲。
+ * - `id` 是 iTunes trackId；试听地址由服务端 `/api/song-quiz/previews` 按 id 实时换取。
+ * - 同一首歌的多个版本（BEST 盘、个人盘、TV size 等）已合并，只保留最早发行的版本。
+ * - 按发行日期升序排列。
+ */
+export default [
+  { id: 1734551581, title: "Spread the Wings!! (2023 Ver.)", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS BRILLI@NT WING 01 Spread the Wings!! (2023 Ver.) - Single", releaseDate: "2018-06-06" },
+  { id: 1734551582, title: "Multicolored Sky (2023 Ver.)", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS BRILLI@NT WING 01 Spread the Wings!! (2023 Ver.) - Single", releaseDate: "2018-06-06" },
+  { id: 1734552351, title: "いつか Shiny Days (2023 Ver.)", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS FR@GMENT WING 01 (2023 Ver.) - Single", releaseDate: "2019-04-10" },
+  { id: 1734551273, title: "シャイノグラフィ (2023 Ver.)", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS GR@DATE WING 01 (2023 Ver.) - Single", releaseDate: "2020-04-08" },
+  { id: 1734551274, title: "Dye the sky. (2023 Ver.)", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS GR@DATE WING 01 (2023 Ver.) - Single", releaseDate: "2020-04-08" },
+  { id: 1734555623, title: "なんどでも笑おう (シャイニーカラーズVer.)", artist: "シャイニーカラーズ, 櫻木真乃 (CV.関根 瞳), 風野灯織 (CV.近藤玲奈) & 八宮めぐる (CV.峯田茉優)", album: "なんどでも笑おう【シャイニーカラーズ盤】 - EP", releaseDate: "2020-09-30" },
+  { id: 1734555527, title: "Sweet Memories", artist: "大崎甘奈 (CV.黒木ほの香)", album: "THE IDOLM@STER SHINY COLORS COLORFUL FE@THERS -Stella-", releaseDate: "2021-01-20" },
+  { id: 1734551849, title: "Resonance⁺ (2023 Ver.)", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS L@YERED WING 01 (2023 Ver.) - EP", releaseDate: "2021-04-14" },
+  { id: 1734551850, title: "Color Days (2023 Ver.)", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS L@YERED WING 01 (2023 Ver.) - EP", releaseDate: "2021-04-14" },
+  { id: 1734553144, title: "Color Days -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -B side-", releaseDate: "2021-04-14" },
+  { id: 1734553471, title: "Resonance⁺ -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -A side-", releaseDate: "2021-04-14" },
+  { id: 1734551765, title: "VOY@GER (シャイニーカラーズVer.)", artist: "シャイニーカラーズ, 有栖川夏葉 (CV.涼本あきほ), 黛 冬優子 (CV.幸村恵理) & 浅倉 透 (CV.和久井 優)", album: "VOY@GER【シャイニーカラーズ盤】 - EP", releaseDate: "2021-08-04" },
+  { id: 1717753819, title: "GR@TITUDE (シャイニーカラーズVer.)", artist: "シャイニーカラーズ, 白瀬咲耶 (CV.八巻アンナ), 小宮果穂 (CV.河野ひより), 杜野凛世 (CV.丸岡和佳奈), 大崎甘奈 (CV.黒木ほの香) & 大崎甜花 (CV.前川涼子)", album: "THE IDOLM@STER STARLIT SEASON 00 GR@TITUDE【ランティス盤】 - Single", releaseDate: "2021-10-06" },
+  { id: 1718493704, title: "THE IDOLM@STER", artist: "天海春香 (CV: 中村繪里子), 如月千早 (CV.今井麻美), 星井美希 (CV.長谷川明子), 萩原雪歩 (CV: 浅倉杏美), 高槻やよい (CV: 仁後真耶子), 秋月律子 (CV: 若林直美), 三浦あずさ (CV.たかはし智秋), 水瀬伊織 (CV.釘宮理恵), 菊地真 (CV: 平田宏美), 双海亜美 (CV: 下田麻美), 双海真美 (CV: 下田麻美), 四条貴音 (CV: 原 由実), 我那覇響 (CV: 沼倉愛美), 安部菜々 (CV: 三宅麻理恵), 神崎蘭子 (CV: 内田真礼), 城ヶ崎美嘉 (CV: 佳村はるか), 双葉杏 (CV: 五十嵐裕美), 諸星きらり (CV: 松嵜 麗), 春日未来 (CV.山崎はるか), 最上静香 (CV.田所あずさ), 伊吹 翼 (CV.Machico), 白石 紬 (CV.南 早紀), 桜守歌織 (CV.香里有佐), 白瀬咲耶 (CV.八巻アンナ), 小宮果穂 (CV.河野ひより), 杜野凛世 (CV.丸岡和佳奈), 大崎甘奈 (CV.黒木ほの香), 大崎甜花 (CV.前川涼子) & 奥空心白 (CV.田中あいみ)", album: "THE IDOLM@STER STARLIT SEASON 01", releaseDate: "2021-12-01" },
+  { id: 1718493858, title: "SESSION!", artist: "天海春香 (CV: 中村繪里子), 水瀬伊織 (CV.釘宮理恵), 菊地真 (CV: 平田宏美), 我那覇響 (CV: 沼倉愛美), 安部菜々 (CV: 三宅麻理恵), 双葉杏 (CV: 五十嵐裕美), 春日未来 (CV.山崎はるか), 大崎甘奈 (CV.黒木ほの香), 大崎甜花 (CV.前川涼子) & 奥空心白 (CV.田中あいみ)", album: "THE IDOLM@STER STARLIT SEASON 01", releaseDate: "2021-12-01" },
+  { id: 1602208429, title: "READY!! (M@STER VERSION)", artist: "天海春香, 如月千早, 星井美希, 萩原雪歩, 高槻やよい, 秋月律子, 三浦あずさ, 水瀬伊織, 菊地真, 双海亜美, 双海真美, 四条貴音, 我那覇響, 白瀬咲耶, 小宮果穂, 杜野凛世, 大崎甘奈, 大崎甜花", album: "THE IDOLM@STER STARLIT SEASON 02", releaseDate: "2022-01-19" },
+  { id: 1734552350, title: "Ambitious Eve (2023 Ver.)", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS FR@GMENT WING 01 (2023 Ver.) - Single", releaseDate: "2022-01-19" },
+  { id: 1618722654, title: "KAWAII ウォーズ", artist: "天海春香 (CV: 中村繪里子), 水瀬伊織 (CV.釘宮理恵), 菊地真 (CV: 平田宏美), 我那覇響 (CV: 沼倉愛美), 安部菜々 (CV: 三宅麻理恵), 双葉杏 (CV: 五十嵐裕美), 春日未来 (CV.山崎はるか), 田中琴葉 (CV.種田梨沙), 大崎甘奈 (CV.黒木ほの香), 大崎甜花 (CV.前川涼子), 奥空心白 (CV: 田中あいみ) & 詩花 (CV.高橋李依)", album: "THE IDOLM@STER STARLIT SEASON 04", releaseDate: "2022-04-13" },
+  { id: 1734552828, title: "虹の行方", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS PANOR@MA WING 01 - EP", releaseDate: "2022-04-13" },
+  { id: 1734552829, title: "Daybreak Age", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS PANOR@MA WING 01 - EP", releaseDate: "2022-04-13" },
+  { id: 1734555973, title: "Secret utopIA (大崎甘奈 Ver.)", artist: "大崎甘奈 (CV.黒木ほの香)", album: "THE IDOLM@STER SHINY COLORS Synthe-Side 03", releaseDate: "2022-04-23" },
+  { id: 1734553273, title: "Spread the Wings!! -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -A side-", releaseDate: "2023-01-18" },
+  { id: 1734553458, title: "Ambitious Eve -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -A side-", releaseDate: "2023-01-18" },
+  { id: 1734553464, title: "シャイノグラフィ -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -A side-", releaseDate: "2023-01-18" },
+  { id: 1734553479, title: "SNOW FLAKES MEMORIES -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -A side-", releaseDate: "2023-01-18" },
+  { id: 1734553480, title: "FUTURITY SMILE -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -A side-", releaseDate: "2023-01-18" },
+  { id: 1836353230, title: "FUTURITY SMILE -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2023-01-18" },
+  { id: 1734553066, title: "Multicolored Sky -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -B side-", releaseDate: "2023-02-08" },
+  { id: 1734553131, title: "いつか Shiny Days -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -B side-", releaseDate: "2023-02-08" },
+  { id: 1734553137, title: "Dye the sky. -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -B side-", releaseDate: "2023-02-08" },
+  { id: 1734553152, title: "Let's get a chance -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -B side-", releaseDate: "2023-02-08" },
+  { id: 1734553153, title: "SWEET♡STEP -25 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS WING COLLECTION -B side-", releaseDate: "2023-02-08" },
+  { id: 1734552135, title: "Shiny Stories", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS Shiny Stories - EP", releaseDate: "2023-04-27" },
+  { id: 1710326926, title: "星の声", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS Song for Prism 星の声 - Single", releaseDate: "2023-10-18" },
+  { id: 1738371611, title: "ツバサグラビティ", artist: "シャイニーカラーズ", album: "ツバサグラビティ", releaseDate: "2023-10-27" },
+  { id: 1739526458, title: "輝きにかわる", artist: "大崎甘奈 (CV.黒木ほの香), 市川雛菜 (CV.岡咲美保) & 田中摩美々 (CV.菅沼千紗)", album: "THE IDOLM@STER SHINY COLORS シャイニーPRオファー Vol.1 - EP", releaseDate: "2024-04-17" },
+  { id: 1770958214, title: "CANDY UNIVERSE", artist: "八宮めぐる (CV.峯田茉優), 三峰結華 (CV.希水しお), 小宮果穂 (CV.河野ひより), 西城樹里 (CV.永井真里子) & 大崎甘奈 (CV.黒木ほの香)", album: "Happy Surprise Trick!", releaseDate: "2024-10-30" },
+  { id: 1770958215, title: "Poison Berry Daughters", artist: "シャイニーカラーズ", album: "Happy Surprise Trick!", releaseDate: "2024-10-30" },
+  { id: 1775167773, title: "C'mon! Join Us", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS Song for Prism C'mon! Join Us / 愛なView / サマーサマーオーシャンパーリィバケーション", releaseDate: "2024-11-20" },
+  { id: 1775167775, title: "愛なView", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS Song for Prism C'mon! Join Us / 愛なView / サマーサマーオーシャンパーリィバケーション", releaseDate: "2024-11-20" },
+  { id: 1785776911, title: "Sweet Memories(DAY1 第2幕「Brillante Stage!!!!!」より)-Live", artist: "大崎 甘奈 (CV. 黒木 ほの香), 東京フィルハーモニー交響楽団, THE IDOLM@STER Series & Bandai Namco Game Music", album: "THE IDOLM@STER ORCHESTRA CONCERT ～SYMPHONY OF FIVE STARS!!!!!～ コンサートアルバム", releaseDate: "2024-12-27" },
+  { id: 1854333472, title: "クローバー", artist: "杜野凛世 (CV.丸岡和佳奈), 大崎甘奈 (CV.黒木ほの香), 市川雛菜 (CV.岡咲美保) & 七草にちか (CV.紫月杏朱彩)", album: "THE IDOLM@STER SHINY COLORS Song for Prism Borderline / クローバー / Summer Night Paradise", releaseDate: "2025-06-07" },
+  { id: 1836353223, title: "Spread the Wings!! -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353224, title: "Ambitious Eve -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353225, title: "シャイノグラフィ -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353227, title: "Resonance⁺ -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353228, title: "虹の行方 -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353229, title: "SNOW FLAKES MEMORIES -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353232, title: "Multicolored Sky -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353233, title: "いつか Shiny Days -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353234, title: "Dye the sky. -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353235, title: "Color Days -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353236, title: "Daybreak Age -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353238, title: "Let's get a chance -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1836353239, title: "SWEET♡STEP -28 colors-", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS -28 colors- COLLECTION", releaseDate: "2025-10-01" },
+  { id: 1837131677, title: "プリズムフレア -25 colors-", artist: "シャイニーカラーズ", album: "プリズムフレア -25 colors- - Single", releaseDate: "2025-10-04" },
+  { id: 1854333471, title: "Borderline", artist: "シャイニーカラーズ", album: "THE IDOLM@STER SHINY COLORS Song for Prism Borderline / クローバー / Summer Night Paradise", releaseDate: "2025-10-26" },
+  { id: 1867148153, title: "感謝のコントレイル", artist: "シャイニーカラーズ", album: "感謝のコントレイル - EP", releaseDate: "2026-02-07" },
+  { id: 6797433707, title: "泡沫に染まる", artist: "風野灯織 (CV.近藤玲奈), 月岡恋鐘 (CV.礒部花凜), 園田智代子 (CV.白石晴香), 大崎甘奈 (CV.黒木ほの香), 芹沢あさひ (CV.田中有紀), 浅倉 透 (CV.和久井 優), 七草にちか (CV.紫月杏朱彩) & 斑鳩ルカ (CV.川口莉奈)", album: "泡沫に染まる - Single", releaseDate: "2026-09-06" },
+  { id: 6802718407, title: "どっちみちLOVE", artist: "大崎甘奈 (CV.黒木ほの香)", album: "THE IDOLM@STER SHINY COLORS HOPEFUL FE@THERS -Stella-", releaseDate: "2026-09-16" },
+] satisfies SongQuizSong[];

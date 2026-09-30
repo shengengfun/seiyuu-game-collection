@@ -1,0 +1,73 @@
+import type { SongQuizSong } from '../types';
+
+/**
+ * Project SEKAI · wxs 的猜歌曲库（抓取自 iTunes JP 区，含 30 秒试听）。
+ *
+ * 生成方式：`node --experimental-strip-types tmp/fetch-song-catalog-v2.mjs` → `node tmp/song-catalog-to-ts-v2.mjs`，不要手改。
+ * - 含小队曲与声优以角色身份演唱的个人曲。
+ * - `id` 是 iTunes trackId；试听地址由服务端 `/api/song-quiz/previews` 按 id 实时换取。
+ * - 同一首歌的多个版本（BEST 盘、个人盘、TV size 等）已合并，只保留最早发行的版本。
+ * - 按发行日期升序排列。
+ */
+export default [
+  { id: 1576287049, title: "セカイはまだ始まってすらいない (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "セカイはまだ始まってすらいない/potatoになっていく (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク) - Single", releaseDate: "2021-07-21" },
+  { id: 1576287051, title: "potatoになっていく (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "セカイはまだ始まってすらいない/potatoになっていく (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク) - Single", releaseDate: "2021-07-21" },
+  { id: 1607075196, title: "スイートマジック (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音リン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.1(Selected Edition)", releaseDate: "2022-02-02" },
+  { id: 1607075198, title: "ブリキノダンス (feat. 天馬司, 神代類 & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.1(Selected Edition)", releaseDate: "2022-02-02" },
+  { id: 1607075200, title: "ぼうけんのしょがきえました![Long ver.] (feat. 天馬司, 鳳えむ, 鏡音リン & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.1(Selected Edition)", releaseDate: "2022-02-02" },
+  { id: 1607075203, title: "ミラクルペイント (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.1(Selected Edition)", releaseDate: "2022-02-02" },
+  { id: 1607075205, title: "チュルリラ・チュルリラ・ダッダッダ! (feat. 天馬司, 鳳えむ, 草薙寧々 & 神代類)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.1(Selected Edition)", releaseDate: "2022-02-02" },
+  { id: 1607075207, title: "ポジティブ☆ダンスタイム (feat. 鳳えむ, 草薙寧々 & 鏡音リン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.1(Selected Edition)", releaseDate: "2022-02-02" },
+  { id: 1607075209, title: "お気に召すまま (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.1(Selected Edition)", releaseDate: "2022-02-02" },
+  { id: 1607075211, title: "KING (feat. 天馬司 & 神代類)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.1(Selected Edition)", releaseDate: "2022-02-02" },
+  { id: 1607075213, title: "テレキャスタービーボーイ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.1(Selected Edition)", releaseDate: "2022-02-02" },
+  { id: 1607075214, title: "フィクサー (feat. 天馬司 & 神代類)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.1(Selected Edition)", releaseDate: "2022-02-02" },
+  { id: 1612403609, title: "ニジイロストーリーズ (feat. 草薙寧々, 神代類, MEIKO & KAITO)", artist: "ワンダーランズ×ショウタイム", album: "ニジイロストーリーズ/ワンスアポンアドリーム - Single", releaseDate: "2022-03-16" },
+  { id: 1612403610, title: "ワンスアポンアドリーム (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ニジイロストーリーズ/ワンスアポンアドリーム - Single", releaseDate: "2022-03-16" },
+  { id: 1669432112, title: "トンデモワンダーズ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & KAITO)", artist: "ワンダーランズ×ショウタイム", album: "トンデモワンダーズ/Glory Steady Go! - Single", releaseDate: "2023-02-15" },
+  { id: 1669432114, title: "Glory Steady Go! (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 巡音ルカ)", artist: "ワンダーランズ×ショウタイム", album: "トンデモワンダーズ/Glory Steady Go! - Single", releaseDate: "2023-02-15" },
+  { id: 1682205410, title: "ショウタイム・ルーラー (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音リン)", artist: "ワンダーランズ×ショウタイム", album: "ショウタイム・ルーラー/にっこり^^調査隊のテーマ - Single", releaseDate: "2023-04-26" },
+  { id: 1682205411, title: "にっこり^^調査隊のテーマ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "ショウタイム・ルーラー/にっこり^^調査隊のテーマ - Single", releaseDate: "2023-04-26" },
+  { id: 1689722119, title: "88☆彡 (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & KAITO)", artist: "ワンダーランズ×ショウタイム", album: "88☆彡/星空のメロディー - Single", releaseDate: "2023-08-02" },
+  { id: 1689722120, title: "星空のメロディー (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & MEIKO)", artist: "ワンダーランズ×ショウタイム", album: "88☆彡/星空のメロディー - Single", releaseDate: "2023-08-02" },
+  { id: 1756448582, title: "星空オーケストラ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 巡音ルカ)", artist: "ワンダーランズ×ショウタイム", album: "星空オーケストラ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 巡音ルカ) - Single", releaseDate: "2023-10-11" },
+  { id: 1715959209, title: "Mr. Showtime (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & Megurine Luka)", artist: "ワンダーランズ×ショウタイム", album: "Mr. Showtime/箱庭のコラル - Single", releaseDate: "2023-12-20" },
+  { id: 1715959210, title: "箱庭のコラル (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & KAITO)", artist: "ワンダーランズ×ショウタイム", album: "Mr. Showtime/箱庭のコラル - Single", releaseDate: "2023-12-20" },
+  { id: 1722581739, title: "ナンセンス文学 (feat. 天馬司, 神代類 & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1722581740, title: "いーあるふぁんくらぶ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音リン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1722581741, title: "リモコン (feat. 鳳えむ, 草薙寧々, 鏡音リン & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1722581742, title: "神のまにまに (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1722581743, title: "グッバイ宣言 (feat. 天馬司, 鳳えむ, 草薙寧々 & 神代類)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1722581744, title: "エイリアンエイリアン (feat. 鳳えむ, 草薙寧々 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1722581745, title: "踊れオーケストラ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 巡音ルカ)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1722581927, title: "ラブカ? (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & MEIKO)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1722581928, title: "ネトゲ廃人シュプレヒコール (feat. 鳳えむ, 草薙寧々 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1722581929, title: "1925 (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & Hatsune Miku)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1722581930, title: "おこちゃま戦争 (feat. 天馬司, 草薙寧々, 鏡音リン & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.2", releaseDate: "2024-01-24" },
+  { id: 1751402420, title: "キラピピ★キラピカ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & MEIKO)", artist: "ワンダーランズ×ショウタイム", album: "キラピピ★キラピカ/フィラメントフィーバー (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & MEIKO) - Single", releaseDate: "2024-06-26" },
+  { id: 1751402421, title: "フィラメントフィーバー (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & MEIKO)", artist: "ワンダーランズ×ショウタイム", album: "キラピピ★キラピカ/フィラメントフィーバー (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & MEIKO) - Single", releaseDate: "2024-06-26" },
+  { id: 1775814024, title: "世界を照らすテトラッド (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "世界を照らすテトラッド/サイバーパンクデッドボーイ - Single", releaseDate: "2024-10-30" },
+  { id: 1775814025, title: "サイバーパンクデッドボーイ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音リン)", artist: "ワンダーランズ×ショウタイム", album: "世界を照らすテトラッド/サイバーパンクデッドボーイ - Single", releaseDate: "2024-10-30" },
+  { id: 1791692348, title: "スマイル*シンフォニー", artist: "ワンダーランズ×ショウタイム", album: "スマイル*シンフォニー - Single", releaseDate: "2025-02-07" },
+  { id: 1802125632, title: "オペラ!スペースオペラ! (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "オペラ!スペースオペラ!/成敗いたAAAAAす! - Single", releaseDate: "2025-03-19" },
+  { id: 1802125634, title: "成敗いたAAAAAす! (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 巡音ルカ)", artist: "ワンダーランズ×ショウタイム", album: "オペラ!スペースオペラ!/成敗いたAAAAAす! - Single", releaseDate: "2025-03-19" },
+  { id: 1815234226, title: "嗚呼、素晴らしきニャン生 (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234227, title: "太陽系デスコ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234378, title: "すきなことだけでいいです (feat. 鳳えむ, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234381, title: "我儘姫 (feat. 鳳えむ, 草薙寧々 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234382, title: "強風オールバック (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音リン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234383, title: "古書屋敷殺人事件 (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & KAITO)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234385, title: "1000年生きてる (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 巡音ルカ)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234386, title: "おちゃめ機能 (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234387, title: "きょうもハレバレ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音リン)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234388, title: "QUEEN (feat. 鳳えむ, 草薙寧々 & MEIKO)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234389, title: "ちがう!!! (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1815234390, title: "転生林檎 (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "ワンダーランズ×ショウタイム SEKAI ALBUM vol.3", releaseDate: "2025-05-28" },
+  { id: 1835311751, title: "ぼくのかみさま (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音レン)", artist: "ワンダーランズ×ショウタイム", album: "ぼくのかみさま/オールセーブチャレンジ - Single", releaseDate: "2025-09-17" },
+  { id: 1835311752, title: "オールセーブチャレンジ (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & KAITO)", artist: "ワンダーランズ×ショウタイム", album: "ぼくのかみさま/オールセーブチャレンジ - Single", releaseDate: "2025-09-17" },
+  { id: 1856463791, title: "ペンタトニック(ワンダーランズ×ショウタイム ver.)", artist: "ワンダーランズ×ショウタイム", album: "プロジェクトセカイ カラフルステージ! feat. 初音ミク テーマソング・アニバーサリーソングアルバム", releaseDate: "2025-12-10" },
+  { id: 6763548159, title: "アイリッド (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 巡音ルカ)", artist: "ワンダーランズ×ショウタイム", album: "アイリッド/サヨナラ天国また来て地獄 (feat. 天馬司, 鳳えむ, 草薙寧々 & 神代類) - Single", releaseDate: "2026-04-29" },
+  { id: 6763548160, title: "サヨナラ天国また来て地獄 (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 初音ミク)", artist: "ワンダーランズ×ショウタイム", album: "アイリッド/サヨナラ天国また来て地獄 (feat. 天馬司, 鳳えむ, 草薙寧々 & 神代類) - Single", releaseDate: "2026-04-29" },
+  { id: 6808565259, title: "征け (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音リン)", artist: "ワンダーランズ×ショウタイム", album: "征け/とびだせ!わんだぴょい (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音リン) - Single", releaseDate: "2026-09-23" },
+  { id: 6808565260, title: "とびだせ!わんだぴょい (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音リン)", artist: "ワンダーランズ×ショウタイム", album: "征け/とびだせ!わんだぴょい (feat. 天馬司, 鳳えむ, 草薙寧々, 神代類 & 鏡音リン) - Single", releaseDate: "2026-09-23" },
+] satisfies SongQuizSong[];
