@@ -1,0 +1,36 @@
+[submodule "modules/song-quiz"]
+	path = modules/song-quiz
+	url = https://github.com/shengengfun/seiyuu-module-song-quiz.git
+[submodule "modules/like-you"]
+	path = modules/like-you
+	url = https://github.com/shengengfun/seiyuu-module-like-you.git
+[submodule "modules/seivalue"]
+	path = modules/seivalue
+	url = https://github.com/shengengfun/seiyuu-module-seivalue.git
+[submodule "modules/seiyu-guess"]
+	path = modules/seiyu-guess
+	url = https://github.com/shengengfun/seiyuu-module-seiyu-guess.git
+[submodule "modules/seiyuu-agency"]
+	path = modules/seiyuu-agency
+	url = https://github.com/shengengfun/seiyuu-module-seiyuu-agency.git
+[submodule "modules/seiyuu-bingo"]
+	path = modules/seiyuu-bingo
+	url = https://github.com/shengengfun/seiyuu-module-seiyuu-bingo.git
+[submodule "modules/seiyuu-life"]
+	path = modules/seiyuu-life
+	url = https://github.com/shengengfun/seiyuu-module-seiyuu-life.git
+[submodule "modules/seiyuu-network"]
+	path = modules/seiyuu-network
+	url = https://github.com/shengengfun/seiyuu-module-seiyuu-network.git
+[submodule "modules/seiyuu-quiz"]
+	path = modules/seiyuu-quiz
+	url = https://github.com/shengengfun/seiyuu-module-seiyuu-quiz.git
+[submodule "modules/seiyuu-resume"]
+	path = modules/seiyuu-resume
+	url = https://github.com/shengengfun/seiyuu-module-seiyuu-resume.git
+[submodule "modules/sukikirai"]
+	path = modules/sukikirai
+	url = https://github.com/shengengfun/seiyuu-module-sukikirai.git
+[submodule "modules/who-you-are"]
+	path = modules/who-you-are
+	url = https://github.com/shengengfun/seiyuu-module-who-you-are.git
