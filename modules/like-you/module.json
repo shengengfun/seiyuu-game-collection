@@ -1,0 +1,26 @@
+{
+  "id": "like-you",
+  "path": "/seiyu-like-you",
+  "order": 70,
+  "color": "#ff6fae",
+  "icon": "Sparkles",
+  "title": {
+    "zh": "我喜欢你",
+    "en": "I Like You",
+    "ja": "あなたが好き"
+  },
+  "description": {
+    "zh": "从全体名册里挑出你最喜欢的 9 位，分批预选、两两对决，最后拿一张九宫格心动名单。",
+    "en": "Pick your favorite nine out of the whole roster: batch preselection, head-to-head duels, and a 3×3 shortlist you can turn into a poster.",
+    "ja": "全声優名簿から推しの 9 人を選ぶ。バッチ予選と一対一の対決を経て、3×3 のリストが残ります。"
+  },
+  "entry": "index.js",
+  "styles": [
+    "style.css"
+  ],
+  "locales": {
+    "zh": "locales/zh.json",
+    "en": "locales/en.json",
+    "ja": "locales/ja.json"
+  }
+}

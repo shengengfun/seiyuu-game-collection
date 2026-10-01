@@ -1,0 +1,6 @@
+{
+  "__MODULE_NS__": {
+    "title": "__MODULE_TITLE_JA__",
+    "placeholder": "モジュールの準備ができました。src/index.tsx にゲーム内容を書いてください。"
+  }
+}

@@ -1,25 +1,35 @@
 {
   "name": "seiyuu-game-collection",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "packageManager": "pnpm@11.13.1",
   "private": true,
-  "description": "声优情报站 - 日本女声优主题小游戏合集",
+  "description": "声优情报站 - 日本女声优主题小游戏合集（模块化主库：门户 / 后台 / 静态数据库 + 独立游戏模块）",
   "scripts": {
-    "dev": "concurrently -n server,client -c blue,green \"pnpm --filter server dev\" \"pnpm --filter client dev\"",
-    "build": "pnpm build:pow && pnpm --filter client build && pnpm --filter server build",
+    "predev": "node scripts/build-vendor.mjs",
+    "dev": "concurrently -n server,host -c blue,green \"pnpm --filter server dev\" \"pnpm --filter host dev\"",
+    "prebuild": "node scripts/build-vendor.mjs",
+    "build": "pnpm build:pow && pnpm build:modules && pnpm --filter host build && pnpm --filter server build",
+    "build:pow": "node scripts/build-pow.mjs",
+    "build:vendor": "node scripts/build-vendor.mjs",
+    "build:modules": "node scripts/build-modules.mjs",
+    "modules:new": "node scripts/new-module.mjs",
+    "modules:check": "node scripts/build-modules.mjs --check",
+    "data:fetch": "node scripts/fetch-bangumi-dump.mjs",
     "start": "pnpm --filter server start",
-    "start:prod": "concurrently -n server,client -c blue,green \"pnpm --filter server start\" \"pnpm --filter client preview\"",
-    "test": "pnpm --filter server test && pnpm --filter client test",
-    "test:client": "pnpm --filter client test",
+    "start:prod": "concurrently -n server,host -c blue,green \"pnpm --filter server start\" \"pnpm --filter host preview\"",
+    "test": "pnpm -r --if-present test",
+    "test:host": "pnpm --filter host test",
+    "test:modules": "node scripts/build-modules.mjs --test",
     "migrate": "pnpm --filter server migrate",
     "seed": "pnpm --filter server seed",
     "create-admin": "pnpm --filter server create-admin",
-    "build:pow": "node scripts/build-pow.mjs",
     "loadtest": "pnpm --filter server loadtest",
     "direct": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/direct-connection.ps1",
     "direct:check": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/direct-connection.ps1 -Check"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.28.2",
+    "vite": "^6.0.7"
   }
 }

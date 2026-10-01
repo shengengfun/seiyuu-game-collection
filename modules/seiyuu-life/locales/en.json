@@ -1,0 +1,531 @@
+{
+  "seiyuuLife": {
+    "title": "Voice Actress Life Restart",
+    "kicker": "LIFE RESTART",
+    "intro": "It starts the day you leave high school: a dozen-plus forks, some of them branches, and that is your whole career.",
+    "rule1": "Pick one option at each fork; acting, singing, fame, stamina and luck all move. Tokyo, voice school or going home - the very first pick sends you down different roads.",
+    "rule2": "Run your stamina down to nothing and you take the burned-out path - you cannot outwork everything.",
+    "rule3": "Each bonus rolls a small random swing, and events cut in along the way; some options are gambles with the odds and both outcomes printed on them.",
+    "rule4": "You finish with one ending, the working voice actress whose path resembles yours most, and how rare your ending is.",
+    "start": "Start this life",
+    "next": "Continue",
+    "eventKicker": "Sudden event",
+    "eventResult": "Outcome",
+    "timeline": "Life timeline",
+    "odds": "Rarity {{value}}% - that is how few random lives land here",
+    "risk": {
+      "chance": "{{value}}% success",
+      "success": "It worked",
+      "failure": "It backfired"
+    },
+    "hud": {
+      "stage": "Step {{index}} of your life"
+    },
+    "stats": {
+      "skill": "Acting",
+      "vocal": "Singing",
+      "fame": "Fame",
+      "stamina": "Stamina",
+      "luck": "Luck"
+    },
+    "stages": {
+      "start": {
+        "title": "The day you graduate, you decide to...",
+        "options": {
+          "tokyo": {
+            "label": "Move to Tokyo and chase it"
+          },
+          "local": {
+            "label": "Stay home and take a day job"
+          },
+          "school": {
+            "label": "Enroll in a voice school"
+          }
+        }
+      },
+      "agency": {
+        "title": "Three agencies want you after your first audition",
+        "options": {
+          "major": {
+            "label": "Sign with a major agency"
+          },
+          "small": {
+            "label": "Join a small agency"
+          },
+          "free": {
+            "label": "Stay freelance"
+          }
+        }
+      },
+      "school": {
+        "title": "Two years at voice school - how do you spend them?",
+        "options": {
+          "top": {
+            "label": "Stay until the last light is off"
+          },
+          "partTime": {
+            "label": "Class by day, part-time job by night"
+          },
+          "club": {
+            "label": "Join a drama club, get on stage"
+          }
+        }
+      },
+      "hometown": {
+        "title": "Life back home",
+        "options": {
+          "localTv": {
+            "label": "Take local TV work"
+          },
+          "workshop": {
+            "label": "Grind the basics in a small theatre"
+          },
+          "giveUp": {
+            "label": "Just be ordinary for now"
+          }
+        }
+      },
+      "firstRole": {
+        "title": "Your first role is on the table",
+        "options": {
+          "lead": {
+            "label": "Fight for the lead"
+          },
+          "support": {
+            "label": "Take a supporting role"
+          },
+          "refuse": {
+            "label": "Turn it down"
+          }
+        }
+      },
+      "crew": {
+        "title": "Someone asks: want to form a unit?",
+        "options": {
+          "idol": {
+            "label": "Join an idol project"
+          },
+          "band": {
+            "label": "Start a band"
+          },
+          "solo": {
+            "label": "Stay solo"
+          }
+        }
+      },
+      "route": {
+        "title": "Where do you put your energy next?",
+        "options": {
+          "anime": {
+            "label": "TV anime"
+          },
+          "game": {
+            "label": "Game voice work"
+          },
+          "radio": {
+            "label": "Radio and narration"
+          }
+        }
+      },
+      "live": {
+        "title": "The tour offer and your throat cannot both win",
+        "options": {
+          "tour": {
+            "label": "Take every date"
+          },
+          "steady": {
+            "label": "Cut some dates, keep the pace"
+          },
+          "skip": {
+            "label": "Sit this tour out"
+          }
+        }
+      },
+      "side": {
+        "title": "What do you do with the free hours?",
+        "options": {
+          "stream": {
+            "label": "Stream on your own channel"
+          },
+          "craft": {
+            "label": "Grind on your craft"
+          },
+          "teach": {
+            "label": "Teach at a voice school"
+          }
+        }
+      },
+      "body": {
+        "title": "Your body starts sending warnings",
+        "options": {
+          "rest": {
+            "label": "Take a full break"
+          },
+          "push": {
+            "label": "Push through one more year"
+          },
+          "backstage": {
+            "label": "Move behind the mic"
+          }
+        }
+      },
+      "unitSplit": {
+        "title": "Trouble inside the unit",
+        "options": {
+          "hold": {
+            "label": "Grit your teeth and keep it together"
+          },
+          "split": {
+            "label": "Split up and go solo"
+          },
+          "dissolve": {
+            "label": "Disband and go back to voice work"
+          }
+        }
+      },
+      "break": {
+        "title": "A clip of you blew up online",
+        "options": {
+          "viral": {
+            "label": "Ride it - take every offer"
+          },
+          "steady": {
+            "label": "Keep the usual pace"
+          },
+          "decline": {
+            "label": "Lie low and skip the heat"
+          }
+        }
+      },
+      "scandal": {
+        "title": "The attention brought trouble too",
+        "options": {
+          "apologize": {
+            "label": "Apologise right away"
+          },
+          "deny": {
+            "label": "Deny it and call it a rumour"
+          },
+          "layLow": {
+            "label": "Stop work for a few months"
+          }
+        }
+      },
+      "biz": {
+        "title": "Your name starts to sell",
+        "options": {
+          "cm": {
+            "label": "Take every commercial"
+          },
+          "indie": {
+            "label": "Pick only the work you love"
+          },
+          "charity": {
+            "label": "Give the time to charity and fans"
+          }
+        }
+      },
+      "rival": {
+        "title": "Newcomers keep coming",
+        "options": {
+          "mentor": {
+            "label": "Mentor them, pass it on"
+          },
+          "compete": {
+            "label": "Fight for the same role"
+          },
+          "team": {
+            "label": "Team up with them instead"
+          }
+        }
+      },
+      "final": {
+        "title": "How do you want to end this?",
+        "options": {
+          "bigStage": {
+            "label": "Go for the biggest stage"
+          },
+          "retire": {
+            "label": "Bow out and move behind the scenes"
+          },
+          "steady": {
+            "label": "Keep the steady work"
+          }
+        }
+      }
+    },
+    "endings": {
+      "burnout": {
+        "name": "Your body gave out first",
+        "desc": "The schedule ran into next year and your throat quit before you did. You stopped, and never went back to that pace.",
+        "reason": "She too only learned to brake after a hospital stay."
+      },
+      "teacher": {
+        "name": "You became a teacher",
+        "desc": "You turned booth experience into lesson plans, and a few of your students became who you once meant to be.",
+        "reason": "She trains rookies now and teaches more than she records."
+      },
+      "award": {
+        "name": "An award winner",
+        "desc": "You wore your most formal outfit to the ceremony, and when your name was read, the loudest cheer came from the colleagues who had been in the booth with you.",
+        "reason": "She has an industry award to her name - the work and the name remembered together."
+      },
+      "anison": {
+        "name": "An anime-song diva",
+        "desc": "A label released your single, the venues grew with every tour date, and more people came to hear you sing than to watch the shows.",
+        "reason": "She debuted as a singer and stood on stages bigger than any booth."
+      },
+      "overseas": {
+        "name": "A hit overseas too",
+        "desc": "From Shanghai convention halls to Los Angeles venues, the light sticks came in different colors but they spelled your name.",
+        "reason": "Outside her home turf, she has an audience of her own overseas."
+      },
+      "star": {
+        "name": "A household lead",
+        "desc": "Your name leads the credits, and people shout the character's name wherever you go.",
+        "reason": "Leads all the way up, with both skill and luck on her side."
+      },
+      "legend": {
+        "name": "A living legend",
+        "desc": "Juniors say \"you know, the one\" before they remember your actual name.",
+        "reason": "She has stayed at the very top for decades."
+      },
+      "variety": {
+        "name": "A variety regular",
+        "desc": "Viewers may never have seen your anime, but they have seen your face on TV.",
+        "reason": "People remember her face before her voice."
+      },
+      "streamer": {
+        "name": "The voice of streaming",
+        "desc": "The chat is livelier than any comment section, and clips keep the editors busy.",
+        "reason": "She is the one whose streams get clipped into memes."
+      },
+      "idol": {
+        "name": "The face of a project",
+        "desc": "You became the face of that project: handshake events run past midnight and every set list has your name on it.",
+        "reason": "In that project she is the one people remember first."
+      },
+      "band": {
+        "name": "The one at the mic",
+        "desc": "Thirty shows in a row, and you still finished the last song with a wrecked voice.",
+        "reason": "She is the one standing behind the guitar in a band."
+      },
+      "radio": {
+        "name": "A late-night regular",
+        "desc": "Every week at that same hour, listeners wait for your opening line.",
+        "reason": "The voice-only name on the radio is hers too."
+      },
+      "game": {
+        "name": "The hidden lead of games",
+        "desc": "Players may not recall your face, but they remember the line you delivered.",
+        "reason": "She voiced a game character people never forget."
+      },
+      "freelance": {
+        "name": "Freelance and formidable",
+        "desc": "No agency banner, so the work had to speak: nobody dared pay you late.",
+        "reason": "No major agency - she stood on her own work."
+      },
+      "workhorse": {
+        "name": "The major-agency workhorse",
+        "desc": "Colleagues came and went; your attendance sheet never left that wall.",
+        "reason": "At a big agency, she is the one who is always there."
+      },
+      "unsung": {
+        "name": "Always in the credits",
+        "desc": "Not many jobs, but never none. When the credits roll, your name is still up there.",
+        "reason": "Rarely named first, but always in the credits."
+      }
+    },
+    "matchReason": "{{name}}: {{reason}}",
+    "events": {
+      "rainyAudition": {
+        "title": "A storm on audition day",
+        "desc": "The last train is cancelled and the floodwater is already on the subway steps.",
+        "options": {
+          "taxi": "Take a taxi across half of Tokyo",
+          "walk": "Walk there through the rain",
+          "skip": "Give up on today"
+        }
+      },
+      "viralClip": {
+        "title": "A booth clip leaked online",
+        "desc": "Someone secretly recorded you humming between takes; it went around tens of thousands of times in a day.",
+        "options": {
+          "ride": "Ride it and post one yourself",
+          "deny": "Ask the agency to take it down",
+          "double": "Turn it into a short-form series"
+        }
+      },
+      "injury": {
+        "title": "You twisted your ankle in rehearsal",
+        "desc": "The premiere is in three weeks; the doctor wants at least two of them off your feet.",
+        "options": {
+          "rest": "Rest properly and move the premiere",
+          "push": "Get a shot and go on stage"
+        }
+      },
+      "watcher": {
+        "title": "Someone followed you home",
+        "desc": "They have stood outside your building for three nights with a phone in hand.",
+        "options": {
+          "police": "Call the police and move out",
+          "ignore": "Ignore it, do not make it bigger",
+          "announce": "Say it out loud on stream"
+        }
+      },
+      "senpaiDinner": {
+        "title": "A senior invites you to dinner",
+        "desc": "A lead-role director who is currently casting is sitting at the same table.",
+        "options": {
+          "go": "Go and make a good impression",
+          "skip": "Too tired, turn it down",
+          "perform": "Get up and audition on the spot"
+        }
+      },
+      "tabloid": {
+        "title": "A weekly caught you at a convenience store",
+        "desc": "The cover headline is already written; it hits the stands tomorrow morning.",
+        "options": {
+          "apologize": "Put out a statement",
+          "silent": "Say nothing and let it pass",
+          "quit": "Quit for real and post about it"
+        }
+      },
+      "gameOffer": {
+        "title": "A game wants you as the lead",
+        "desc": "The producer says the budget is small but the role carries the whole story.",
+        "options": {
+          "take": "Take it",
+          "bundle": "Insist a rookie comes along",
+          "pass": "Pass this time"
+        }
+      },
+      "newManager": {
+        "title": "The agency swapped your manager",
+        "desc": "The new one wants to change the pace of everything you do.",
+        "options": {
+          "trust": "Follow her lead completely",
+          "resist": "Stick to how you have worked",
+          "solo": "Take side jobs behind her back"
+        }
+      },
+      "fanLetter": {
+        "title": "A three-page fan letter arrives",
+        "desc": "Tiny handwriting, and the last line reads: because of you, I got through that winter.",
+        "options": {
+          "reply": "Write a reply by hand",
+          "archive": "Put it in the drawer",
+          "share": "Post it on social media"
+        }
+      },
+      "voiceLoss": {
+        "title": "Your vocal cords are bleeding",
+        "desc": "Three months without a break; the doctor warns that singing on could leave permanent damage.",
+        "options": {
+          "surgery": "Surgery and a long rest",
+          "conservative": "Treat it and keep working"
+        }
+      },
+      "unitClash": {
+        "title": "The unit is fighting",
+        "desc": "There is only so much budget, and who gets what is now on the table.",
+        "options": {
+          "mediate": "Play the peacemaker",
+          "sideMajor": "Side with whoever is more popular",
+          "leave": "Walk out of the unit"
+        }
+      },
+      "tvOffer": {
+        "title": "A variety show wants you as a regular",
+        "desc": "Prime time, once a week, and it eats every Wednesday.",
+        "options": {
+          "accept": "Accept",
+          "decline": "Decline and stay on voice work",
+          "guest": "Only as a one-off guest"
+        }
+      },
+      "memeClip": {
+        "title": "Your stream clip became a meme",
+        "desc": "The sticker pack is everywhere and the comments are all shouting your name.",
+        "options": {
+          "lean": "Take streaming seriously",
+          "deny": "Remind everyone you are a voice actress first"
+        }
+      },
+      "longRest": {
+        "title": "A whole month suddenly free",
+        "desc": "For the first time this year the calendar is empty, and your manager says the time is yours to spend.",
+        "options": {
+          "rest": "Sleep it off and take nothing",
+          "trip": "Travel a little and see old friends",
+          "hustle": "Take two more jobs while it is quiet"
+        }
+      },
+      "dreamRole": {
+        "title": "The role you waited years for",
+        "desc": "You know the source material by heart, the audition notice is in your inbox, and the field is crowded.",
+        "options": {
+          "take": "Do the homework and play it safe",
+          "audition": "Gamble on the boldest read you have",
+          "recommend": "Audition alongside a partner and cover each other"
+        }
+      },
+      "awardNominee": {
+        "title": "A best-voice-actress nomination",
+        "desc": "Your phone rang all day when the shortlist went up. The ceremony is next month.",
+        "options": {
+          "attend": "Go and sit in the front row",
+          "video": "Send the organizers a thank-you video",
+          "skip": "Skip it and stay in the booth"
+        }
+      },
+      "anisonOffer": {
+        "title": "A label wants to release your single",
+        "desc": "The producer called right after hearing your character song and wants to write something for your voice.",
+        "options": {
+          "accept": "Sign it and cut a debut single",
+          "unit": "Release it together with your unit",
+          "decline": "Focus on voice work for now"
+        }
+      },
+      "overseasInvite": {
+        "title": "An invitation from overseas",
+        "desc": "They say the venue is booked, the fan-subbers will be there, and flights and hotel are covered.",
+        "options": {
+          "go": "Fly out and meet that audience",
+          "online": "Join by video call instead",
+          "decline": "Not this time"
+        }
+      },
+      "fanMeeting": {
+        "title": "Your fans want to hold a meet-and-greet",
+        "desc": "Banners, cheers, a raffle - they have planned it all and are waiting on your yes.",
+        "options": {
+          "hold": "Do a big one",
+          "small": "Keep it small and talk properly",
+          "gift": "Skip the event and mail signed gifts"
+        }
+      }
+    },
+    "result": {
+      "title": "How your life ended up",
+      "statsTitle": "Final stats",
+      "matchTitle": "Closest to your path",
+      "restart": "Restart this life",
+      "shareTitle": "Voice Actress Life Restart",
+      "shareSummary": "My life landed on \"{{ending}}\" - what is yours?"
+    },
+    "poster": {
+      "kicker": "LIFE RESTART",
+      "title": "Voice Actress Life Restart",
+      "hint": "homoto-akina.top · Seiyuu Intel Station",
+      "qrCaption": "Scan to play",
+      "open": "Make a poster",
+      "building": "Rendering…",
+      "label": "Poster preview",
+      "saveHint": "Tap Download to save the image; on a phone you can also long-press it, then send it to friends on QQ or WeChat.",
+      "download": "Download image",
+      "failed": "The poster could not be rendered - please try another browser."
+    }
+  }
+}

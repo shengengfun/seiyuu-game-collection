@@ -1,0 +1,26 @@
+{
+  "id": "who-you-are",
+  "path": "/seiyu-who-you-are",
+  "order": 30,
+  "color": "#ff9ec4",
+  "icon": "Heart",
+  "title": {
+    "zh": "你是哪个声优",
+    "en": "Which Seiyuu Are You",
+    "ja": "あなたはどの声優？"
+  },
+  "description": {
+    "zh": "六个气质维度，算出你和哪位女声优最像：快速 24 题 / PRO 48 题。",
+    "en": "Six personality axes; find out which seiyuu you resemble most. Quick 24 questions / PRO 48.",
+    "ja": "6つの気質軸で、あなたに一番似ている女性声優を診断。クイック24問 / PRO 48問。"
+  },
+  "entry": "index.js",
+  "styles": [
+    "style.css"
+  ],
+  "locales": {
+    "zh": "locales/zh.json",
+    "en": "locales/en.json",
+    "ja": "locales/ja.json"
+  }
+}

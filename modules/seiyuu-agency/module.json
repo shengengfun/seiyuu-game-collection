@@ -1,0 +1,26 @@
+{
+  "id": "seiyuu-agency",
+  "path": "/seiyuu-agency",
+  "order": 95,
+  "color": "#f4a259",
+  "icon": "Building2",
+  "title": {
+    "zh": "声优事务所经营",
+    "en": "Voice Agency Sim",
+    "ja": "声優事務所経営"
+  },
+  "description": {
+    "zh": "你开一家小事务所，12 个月里签新人、接委托，看谁先红，最后拿一张事务所年报。",
+    "en": "Run a tiny voice agency for twelve months: sign rookies, take jobs and see who makes it, then collect your annual report.",
+    "ja": "小さな事務所を 12 か月経営し、新人を契約して依頼を回す。誰が先に売れるか、最後は事務所年報に。"
+  },
+  "entry": "index.js",
+  "styles": [
+    "style.css"
+  ],
+  "locales": {
+    "zh": "locales/zh.json",
+    "en": "locales/en.json",
+    "ja": "locales/ja.json"
+  }
+}

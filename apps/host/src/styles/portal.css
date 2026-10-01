@@ -1,0 +1,74 @@
+/* ===== 声优情报站门户 ===== */
+/* 站点 logo（public/logo-website-144.jpg，1:1 方图）。
+ * 边框必须跟着图走：jpg 没有透明通道、自带近白底色，浅色主题下不描边会和卡片糊成一片；
+ * 圆角/object-fit 一起管，换成别的方图也不用改尺寸。 */
+.portal-logo {
+  display: block;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 12px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  background: var(--card);
+  box-shadow: 0 10px 30px rgba(143, 92, 255, 0.35);
+}
+
+.portal-hero h1 {
+  font-size: clamp(2rem, 6vw, 4.2rem);
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+
+/* 游戏数量会继续增加,用自适应居中避免固定三列时右侧留空 */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 320px));
+  justify-content: center;
+  gap: 14px;
+  max-width: 68.75rem;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.portal-hint {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* 主标题下的作者 B 站关注入口：胶囊按钮，比副标题弱一档但足够醒目 */
+.portal-follow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 8px 18px;
+  border: 1px solid rgba(251, 114, 153, 0.45);
+  border-radius: 999px;
+  background: rgba(251, 114, 153, 0.12);
+  color: inherit;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.portal-follow:hover {
+  background: rgba(251, 114, 153, 0.22);
+  border-color: #fb7299;
+  transform: translateY(-1px);
+}
+
+.portal-follow svg {
+  flex: none;
+  color: #fb7299;
+}
+
+@media (max-width: 640px) {
+  .portal-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 0;
+  }
+  .portal-hero h1 { letter-spacing: 0.02em; }
+}

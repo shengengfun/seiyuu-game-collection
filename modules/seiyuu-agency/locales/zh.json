@@ -1,0 +1,669 @@
+{
+  "seiyuuAgency": {
+    "title": "声优事务所经营",
+    "kicker": "VOICE AGENCY SIM",
+    "intro": "你手里是一家刚起步的小事务所，合约期内看能不能把谁捧红。",
+    "rule1": "每个月从几个委托里挑一个派给成员，派错人大概率翻车。",
+    "rule2": "签新人要花钱；手上的红人也会被大所看上，留不留得住另说。",
+    "rule3": "体力被榨干的成员接什么都会翻车，集训和休整不是废牌。",
+    "rule4": "道具每月只能用一件，给谁用要提前想清楚；凑够两个人可以组团，接只属于组合的活。",
+    "rule5": "合约期内会撞上突发事件，要你当场拍板；有的选项是赌注，输赢当场结算。",
+    "rule6": "声优每月都要发工资，签人之前先算一下养不养得起。",
+    "start": "开业",
+    "preferredTitle": "签约倾向（至多两个）",
+    "preferredCount": "已选 {{count}} / 2",
+    "preferredHint": "选中企划的声优更容易被抽到（开局成员和试音会候补都算）。",
+    "originTitle": "事务所类型",
+    "origins": {
+      "legendary": {
+        "name": "老牌事务所",
+        "desc": "开局三人都是老资历，数值高、能直接接大活；但月薪比别家贵三成。"
+      },
+      "academy": {
+        "name": "专业育成所",
+        "desc": "开局资金多三成半，工资便宜，成员成长更快；手上都是新人。"
+      },
+      "rookie": {
+        "name": "新人青训营",
+        "desc": "每次试音会多两位候选、签约便宜，经纪人还多 1 点；缺点是开局数值偏低，得一点一点练。"
+      },
+      "boutique": {
+        "name": "独立工作室",
+        "desc": "资金最少、工资最低，但老板亲自带：加点直接多 3 点。"
+      }
+    },
+    "difficultyTitle": "难度",
+    "lengthTitle": "合约长度",
+    "lengths": {
+      "short": {
+        "name": "一年",
+        "desc": "{{months}} 个月，节奏快，适合先试一局。"
+      },
+      "standard": {
+        "name": "两年",
+        "desc": "{{months}} 个月，够把新人养起来，也够撞上几次大事。"
+      },
+      "long": {
+        "name": "三年",
+        "desc": "{{months}} 个月，慢慢经营，组两支组合也来得及。"
+      }
+    },
+    "agent": {
+      "title": "经纪人加点",
+      "hint": "一共 {{total}} 点，单项最多 {{max}} 点；想留几点不花也可以，直接开业就行。",
+      "even": "平均分配",
+      "clear": "清空",
+      "left": "还能分配 {{left}} 点",
+      "linked": "已按成绩码分配 {{total}} 点",
+      "linkHint": "有 SeiValue 的成绩码的话可以填进来，四个轴的成绩会直接摊成加点，比自己手点更贴你。",
+      "linkPlaceholder": "粘贴成绩码，例如 F95734-1a-k3f9z2qx",
+      "linkLabel": "SeiValue 成绩码",
+      "link": "导入成绩码",
+      "unlink": "取消导入",
+      "linkedOk": "已导入 {{code}}",
+      "codeInvalid": "这个码读不出来，看看是不是没复制全。",
+      "attrs": {
+        "network": {
+          "name": "人脉",
+          "desc": "更容易签到老牌声优，也更容易谈成转会。"
+        },
+        "eye": {
+          "name": "眼光",
+          "desc": "接活的成功率更高，新人身上也更容易开出好特质。"
+        },
+        "negotiation": {
+          "name": "谈判",
+          "desc": "委托分成更高，突发事件里的进账也更多。"
+        },
+        "care": {
+          "name": "照顾",
+          "desc": "成员体力恢复更快，忠诚掉得更慢。"
+        }
+      }
+    },
+    "difficulties": {
+      "easy": {
+        "name": "宽松",
+        "desc": "资金 {{cash}} 万、声望 {{reputation}}、经纪人 {{points}} 点。"
+      },
+      "normal": {
+        "name": "标准",
+        "desc": "资金 {{cash}} 万、声望 {{reputation}}、经纪人 {{points}} 点。"
+      },
+      "hard": {
+        "name": "硬核",
+        "desc": "资金 {{cash}} 万、声望 {{reputation}}、经纪人 {{points}} 点。"
+      }
+    },
+    "hud": {
+      "month": "第 {{month}} / {{total}} 个月",
+      "cash": "资金 {{value}} 万",
+      "reputation": "声望 {{value}}",
+      "wage": "月薪 {{value}} 万",
+      "actions": "本月行动 {{left}} / {{total}}"
+    },
+    "tiers": {
+      "entry": "入门",
+      "normal": "常规",
+      "hard": "挑战",
+      "elite": "顶级"
+    },
+    "stats": {
+      "skill": "演技",
+      "vocal": "歌唱",
+      "charm": "魅力",
+      "stamina": "体力",
+      "fame": "知名度",
+      "loyalty": "忠诚",
+      "salary": "月薪",
+      "cash": "资金",
+      "reputation": "声望"
+    },
+    "jobs": {
+      "commercial": "广告旁白",
+      "animeSide": "动画配角",
+      "radioShow": "广播常规",
+      "gameVoice": "游戏配音",
+      "varietyShow": "综艺出场",
+      "stageLive": "现场演出",
+      "themeSong": "主题曲",
+      "animeLead": "动画主役",
+      "movieDub": "剧场版配音",
+      "unitLive": "组合专场",
+      "filmLead": "电影主役",
+      "worldTour": "世界巡演",
+      "awardHost": "颁奖礼主持",
+      "singingLesson": "歌唱课",
+      "danceLesson": "舞蹈课",
+      "actingLesson": "表演课",
+      "dubbingLesson": "配音课",
+      "rest": "公司休整"
+    },
+    "offers": {
+      "title": "本月的委托",
+      "hint": "先点一个委托，再点成员派人。",
+      "safe": "不会失败",
+      "train": "{{stat}} +{{gain}}",
+      "trainAll": "三项 +{{gain}}",
+      "unitOnly": "组合限定",
+      "pay": "{{value}} 万",
+      "fame": "知名度 +{{value}}",
+      "needStat": "需 {{stat}} ≥ {{value}}",
+      "chance": "最好 {{value}}%",
+      "restHint": "体力 +{{value}}"
+    },
+    "assign": {
+      "hint": "先在上面选一个委托，再决定派谁。",
+      "hintSelected": "派谁去接这个委托？",
+      "pickOffer": "先挑一个委托，再选人。",
+      "pickTalent": "派她",
+      "streak": "已经连续翻车 {{count}} 次，下次派活成功率 +{{value}}%。"
+    },
+    "talents": {
+      "title": "旗下成员"
+    },
+    "talent": {
+      "veteran": "老牌"
+    },
+    "unit": {
+      "title": "组合",
+      "count": "{{count}} / {{limit}} 支",
+      "form": "组团（{{cost}} 万）",
+      "confirm": "就这么定（{{cost}} 万）",
+      "meta": "{{fame}} 知名度 · {{members}} 人 · 专场成功 {{successes}} 次",
+      "disband": "解散",
+      "pickHint": "选 {{min}}～{{max}} 个人组队；专场的时候几个人一起出场。",
+      "pick": "选她",
+      "picked": "已选",
+      "invalid": "人数不对，或者钱不够。",
+      "nameLabel": "组合名",
+      "namePlaceholder": "例如：{{fallback}}"
+    },
+    "items": {
+      "title": "道具商店",
+      "available": "本回合还没用过道具",
+      "used": "本回合已经用过了",
+      "usedList": "本回合已用 {{count}} 件（同一件下回合可再用）",
+      "shopHint": "随时可以买、不限件数；同一件道具每个回合（每次派活前）只能用一次。",
+      "buy": "买",
+      "needBuy": "先买再用",
+      "noCash": "资金不够买这件。",
+      "openShop": "道具商店",
+      "openBag": "背包（{{count}}）",
+      "ownedHint": "手上：{{list}}。",
+      "bagHint": "已买下的道具；同一件每回合只能用一次。",
+      "emptyBag": "背包还是空的，去商店看看。",
+      "groups": {
+        "growth": "培育成长",
+        "showbiz": "通告曝光",
+        "safety": "风控保障"
+      },
+      "cost": "{{value}} 万",
+      "pickTarget": "先选一个成员，再决定用哪件道具。",
+      "use": "用掉",
+      "trainingCamp": {
+        "name": "集训营",
+        "desc": "全所集训一个月：演技和歌唱 +6，体力 -8。"
+      },
+      "businessTrip": {
+        "name": "外出取材",
+        "desc": "本月所有委托成功率 +15%。"
+      },
+      "publicity": {
+        "name": "公关宣传",
+        "desc": "声望 +8，本月突发事件里的负面效果减半。"
+      },
+      "healthCheck": {
+        "name": "体检疗养",
+        "desc": "全员体力 +20、忠诚 +4。"
+      },
+      "giftTickets": {
+        "name": "演出票",
+        "desc": "指定成员忠诚 +18、知名度 +3。"
+      },
+      "photoShoot": {
+        "name": "写真拍摄",
+        "desc": "指定成员知名度 +8，体力 -10、忠诚 -4。"
+      },
+      "coach": {
+        "name": "私教课",
+        "desc": "指定成员最弱的那一项 +10。"
+      },
+      "scoutReport": {
+        "name": "星探报告",
+        "desc": "下一次试音会多一位候选。"
+      },
+      "rerollOffers": {
+        "name": "换一批委托",
+        "desc": "手上这些委托全换掉，重新抽一份。"
+      },
+      "insurance": {
+        "name": "事故保险",
+        "desc": "本月有一次翻车不算数。"
+      },
+      "fanEvent": {
+        "name": "粉丝见面会",
+        "desc": "全所知名度 +3、忠诚 +3、声望 +4，体力 -6。"
+      }
+    },
+    "traits": {
+      "leadAura": {
+        "name": "主役相",
+        "desc": "接主役更稳：主役成功率 +12%。"
+      },
+      "radioVoice": {
+        "name": "好嗓门",
+        "desc": "广播常规 +15%、主题曲 +10%，声音就是本钱。"
+      },
+      "varietySense": {
+        "name": "综艺感",
+        "desc": "综艺出场 +18%，曝光带来的知名度也更多。"
+      },
+      "ironThroat": {
+        "name": "铁嗓",
+        "desc": "体力消耗少四分之一，连轴转也不倒。"
+      },
+      "glassHeart": {
+        "name": "玻璃心",
+        "desc": "忠诚掉得比别人快，得常哄。"
+      },
+      "workaholic": {
+        "name": "工作狂",
+        "desc": "分成 +15%、成长更快，但更耗体力。"
+      },
+      "mediaDarling": {
+        "name": "媒体宠儿",
+        "desc": "曝光带来的知名度 +25%。"
+      },
+      "introvert": {
+        "name": "内向",
+        "desc": "综艺吃不开，配角反而更稳。"
+      },
+      "goldenEar": {
+        "name": "金耳朵",
+        "desc": "什么活都干得来，各类委托成功率 +8%。"
+      },
+      "stageBorn": {
+        "name": "舞台型",
+        "desc": "现场演出与组合专场更容易成，还不容易累。"
+      }
+    },
+    "titles": {
+      "leadMachine": {
+        "name": "主役机器",
+        "desc": "主役接得够多：主役成功率与分成一起涨。"
+      },
+      "radioQueen": {
+        "name": "广播女王",
+        "desc": "广播常规做满：广播与曝光再上一层。"
+      },
+      "varietyStar": {
+        "name": "综艺之星",
+        "desc": "综艺上出了名，综艺委托更好谈。"
+      },
+      "ironBody": {
+        "name": "铁人",
+        "desc": "活接得多、知名度也到位，体力消耗更低。"
+      },
+      "comeback": {
+        "name": "翻身仗",
+        "desc": "翻车不少但还站得住：什么都更好接，忠诚也涨。"
+      },
+      "unitSoul": {
+        "name": "组合之魂",
+        "desc": "专场扛过几场：组合活更稳、曝光更多。"
+      },
+      "newcomerKing": {
+        "name": "新人王",
+        "desc": "出道没几个月就把知名度做起来，曝光与成功率双加。"
+      },
+      "livingLegend": {
+        "name": "活着的传说",
+        "desc": "知名度到了顶格，什么委托都好谈。"
+      },
+      "president": {
+        "name": "声优总统",
+        "desc": "在国会答过辞的那位。"
+      },
+      "cosmicNarrator": {
+        "name": "宇宙解说员",
+        "desc": "对着地球解说过的嗓子。"
+      }
+    },
+    "recruit": {
+      "title": "第 {{month}} 个月 · 新人试音会",
+      "intro": "三位新人想签进来，数值各不相同。",
+      "sign": "签下",
+      "skip": "这次不签",
+      "refresh": "换一批（剩 {{left}} 次）",
+      "refreshEmpty": "这批人已经换完了。",
+      "cost": "签约费 {{value}} 万起"
+    },
+    "logTitle": "事务所日志",
+    "log": {
+      "open": "查看全部",
+      "count": "共 {{count}} 条",
+      "hint": "每个月都有记录：接了哪些活、到手多少钱、谁长本事了。",
+      "net": "资金 {{value}} 万",
+      "lesson": "买了个教训 +{{value}}",
+      "success": "{{name}} 拿下{{job}}，进账 {{amount}} 万。",
+      "fail": "{{name}} 在{{job}}里翻车，只拿到 {{amount}} 万。",
+      "training": "{{name}} 参加公司集训，数值小涨。",
+      "rest": "{{name}} 休整了一个月，体力回来了。",
+      "event": "出了点事。",
+      "recruit": "签下了新人。",
+      "leave": "{{name}} 离开了事务所。",
+      "item": "用掉了{{item}}。",
+      "buy": "买进{{item}}（{{amount}} 万）。",
+      "title": "{{name}} 解锁称号「{{title}}」。",
+      "unit": "{{unit}} 成立。",
+      "wage": "发了 {{amount}} 万工资。",
+      "wageLate": "发了 {{amount}} 万工资，账上已经见底。",
+      "restBonus": "{{name}} 公司休整了一个月，还顺手练了练：{{list}}。"
+    },
+    "event": {
+      "kicker": "突发事件",
+      "easterKicker": "名场面",
+      "target": "当事人：{{name}}",
+      "chance": "成功 {{value}}%",
+      "success": "成了",
+      "failure": "翻车",
+      "scopeAll": "全所",
+      "scopeUnit": "组合",
+      "willLeave": "她可能就此离开",
+      "willSign": "当场签下",
+      "noCash": "钱不够"
+    },
+    "events": {
+      "viral": {
+        "title": "直播切片在站外爆火",
+        "desc": "一天涨了几万播放，经纪人说这种机会不常有。",
+        "options": {
+          "push": "加推一波资源",
+          "nothing": "顺其自然",
+          "risk": "趁热开一场付费直播"
+        }
+      },
+      "scandal": {
+        "title": "周刊拍到她深夜吸烟",
+        "desc": "明早出街，公关在等你一句话。",
+        "options": {
+          "apologize": "发声明道歉",
+          "silent": "冷处理，不回应",
+          "sue": "直接起诉周刊"
+        }
+      },
+      "sick": {
+        "title": "她的嗓子发炎了",
+        "desc": "医生建议至少停两周，但手上还排着活。",
+        "options": {
+          "rest": "让她休息一个月",
+          "push": "硬上，赶完这单"
+        }
+      },
+      "offer": {
+        "title": "企业指名企划",
+        "desc": "三周内要出活，价格不算厚道。",
+        "options": {
+          "accept": "接下来",
+          "negotiate": "抬价再谈",
+          "decline": "不接"
+        }
+      },
+      "graduation": {
+        "title": "她想出一本写真集",
+        "desc": "企划书已经放在你桌上，只等你签字。",
+        "options": {
+          "fund": "事务所垫钱出",
+          "selfFunded": "让她自费出",
+          "block": "先拦下来，专心本业"
+        }
+      },
+      "award": {
+        "title": "新人赏入围",
+        "desc": "评奖在下个月，公关预算还剩一点。",
+        "options": {
+          "campaign": "砸钱拉票",
+          "nothing": "顺其自然",
+          "attend": "礼数性出席"
+        }
+      },
+      "poach": {
+        "title": "大所来挖人",
+        "desc": "对方开的价比你给的高三成。",
+        "options": {
+          "raise": "加薪挽留",
+          "letGo": "放她走，收转让费",
+          "heart": "打感情牌"
+        }
+      },
+      "flu": {
+        "title": "事务所集体流感",
+        "desc": "一周之内倒了三个人。",
+        "options": {
+          "restAll": "全员休息一周",
+          "pushAll": "照常推进"
+        }
+      },
+      "variety": {
+        "title": "综艺常驻邀约",
+        "desc": "黄金档，但要占掉她每周两天。",
+        "options": {
+          "accept": "让她上",
+          "pair": "要求带上所里另一位",
+          "decline": "婉拒"
+        }
+      },
+      "songDeal": {
+        "title": "唱片公司想给她出单曲",
+        "desc": "条件不错，但要连轴转一个月。",
+        "options": {
+          "sign": "签约出单曲",
+          "mini": "只做迷你专辑",
+          "decline": "先不接"
+        }
+      },
+      "voiceAward": {
+        "title": "声优赏提名",
+        "desc": "业内最有分量的那个奖，提名名单上有她的名字。",
+        "options": {
+          "campaign": "砋钱运作（120 万）",
+          "nothing": "什么都不做，等开票",
+          "party": "叫上全所办个庆功宴"
+        }
+      },
+      "veteranLeaving": {
+        "title": "老牌声优递了辞呈",
+        "desc": "她说想去做点别的事，辞呈已经放在你桌上。",
+        "options": {
+          "raise": "加薪挽留（180 万）",
+          "studio": "给她开一间个人工作室（260 万）",
+          "talk": "不谈钱，跟她聊一次",
+          "letGo": "放她走，收转让费"
+        }
+      },
+      "transferIn": {
+        "title": "别家事务所的人想过来",
+        "desc": "对方合约快到期，经纪人先来递了个话。",
+        "options": {
+          "sign": "直接签下（150 万）",
+          "trial": "先让她试一个月",
+          "decline": "婉拒"
+        }
+      },
+      "freelanceDeal": {
+        "title": "自由身声优来找活",
+        "desc": "没签约的熟手，价格可以谈。",
+        "options": {
+          "accept": "按次合作",
+          "exclusive": "要求优先给我们",
+          "decline": "这单不接"
+        }
+      },
+      "movieLead": {
+        "title": "剧场版想找她配主角",
+        "desc": "制作方听过她的试音带，档期只留了一个月。",
+        "options": {
+          "take": "接下来，押一把",
+          "support": "退一步接配角",
+          "decline": "先保状态"
+        }
+      },
+      "gossip": {
+        "title": "周刊在写她的恋情",
+        "desc": "稿子还没发，对方来问你要不要回应。",
+        "options": {
+          "confirm": "大方承认",
+          "deny": "发声明否认",
+          "silent": "什么都不说"
+        }
+      },
+      "backlash": {
+        "title": "一条旧发言被翻出来",
+        "desc": "截图在网上转了一圈，评论不太好。",
+        "options": {
+          "apologize": "道歉",
+          "explain": "写长文解释",
+          "offline": "让她先离线一阵"
+        }
+      },
+      "industryWinter": {
+        "title": "行业进入寒冬",
+        "desc": "几个企划同时砍预算，明年怕是更冷。",
+        "options": {
+          "cut": "压缩开支，等风过去",
+          "invest": "逆势加码（120 万）"
+        }
+      },
+      "taxAudit": {
+        "title": "税务来查账",
+        "desc": "查的是前两年的流水，账本你心里有数。",
+        "options": {
+          "pay": "补缴（160 万）",
+          "lawyer": "请税务律师（90 万）",
+          "fight": "硬扛，跟他们掰持清楚"
+        }
+      },
+      "unitClash": {
+        "title": "组合内部闹矛盾",
+        "desc": "两个人为了谁站中间，已经一周没说话了。",
+        "options": {
+          "mediate": "你去劝和",
+          "sideMajor": "顺势定一个主心骨",
+          "split": "各唱各的，先分开一阵"
+        }
+      },
+      "unitBreak": {
+        "title": "组合要散了",
+        "desc": "有人已经私下找经纪人问解约的事。",
+        "options": {
+          "save": "加码留人（200 万）",
+          "rebrand": "换风格重新出发",
+          "break": "就地解散"
+        }
+      },
+      "unitStage": {
+        "title": "组合专场找上门",
+        "desc": "场地和主办都定了，就看她们接不接。",
+        "options": {
+          "accept": "接，赌一场满座",
+          "small": "先做个小场",
+          "decline": "状态不够，先推掉"
+        }
+      },
+      "easterPresident": {
+        "title": "她被写进了总统候选名单",
+        "desc": "整件事毫无道理，但名单上确实有她的名字。",
+        "options": {
+          "accept": "那就去选",
+          "decline": "礼貌地回绝"
+        }
+      },
+      "easterNasa": {
+        "title": "NASA 请她录一段解说",
+        "desc": "对方说想找一把让人安心的嗓子。",
+        "options": {
+          "narrate": "接下来"
+        }
+      },
+      "easterTimeCover": {
+        "title": "时代周刊想让她上封面",
+        "desc": "摄影师已经在门口等着了。",
+        "options": {
+          "cover": "上封面上",
+          "refuse": "不给人当封面"
+        }
+      },
+      "easterPrimeMinister": {
+        "title": "她被请去当特别顾问",
+        "desc": "一整层楼的公务员在等她一句话。",
+        "options": {
+          "advisor": "去就去"
+        }
+      }
+    },
+    "awards": {
+      "title": "年度奖项",
+      "breakout": "年度突破",
+      "bestNewcomer": "最佳新人",
+      "bestLead": "最佳主役",
+      "busiest": "全勤奖",
+      "bestUnit": "年度组合",
+      "fanFavorite": "粉丝心中最佳",
+      "line": "{{award}}：{{name}}"
+    },
+    "report": {
+      "title": "事务所年报",
+      "score": "事务所声望",
+      "top": "招牌成员",
+      "easterTitle": "今年撞上的名场面",
+      "unitsTitle": "自家组合",
+      "unitLine": "{{name}} · 名气 {{fame}} · 成功 {{successes}} 次",
+      "statsTitle": "全年统计",
+      "statsJobs": "接下委托",
+      "statsTitles": "解锁称号",
+      "statsItems": "道具使用",
+      "statsUnits": "组建组合",
+      "statsWage": "工资支出",
+      "stats": "道具 {{items}} 件 · 称号 {{titles}} 个 · 组合 {{units}} 支 · 工资 {{wage}} 万",
+      "eggNote": "名场面事件出现概率约 {{value}}%，撞上算你运气好。",
+      "highlight": "年度高光",
+      "none": "今年平安无事，没什么值得写进年报的。",
+      "restart": "再开一年",
+      "shareTitle": "声优事务所年报",
+      "shareSummary": "我的事务所评级 {{grade}}，声望 {{score}}。"
+    },
+    "modal": {
+      "shop": "道具商店",
+      "bag": "背包",
+      "log": "事务所日志",
+      "save": "存档"
+    },
+    "save": {
+      "open": "存档",
+      "loadTitle": "读取存档",
+      "auto": "自动存档",
+      "slot": "存档位 {{slot}}",
+      "empty": "空档位",
+      "meta": "第 {{month}} / {{total}} 个月 · 资金 {{cash}} 万 · 声望 {{reputation}}",
+      "monthShort": "第 {{month}} 月",
+      "save": "存档",
+      "load": "读档",
+      "delete": "删除",
+      "saved": "已写入存档位 {{slot}}。"
+    },
+    "poster": {
+      "kicker": "VOICE AGENCY SIM",
+      "title": "事务所年报",
+      "subtitle": "{{months}} 个月里接下 {{jobs}} 个委托",
+      "hint": "homoto-akina.top · 声优情报站",
+      "qrCaption": "扫码来玩",
+      "open": "生成分享图",
+      "building": "正在生成…",
+      "label": "分享图预览",
+      "saveHint": "点「下载图片」存到本地；手机上也可以长按图片保存，再发给 QQ / 微信好友。",
+      "download": "下载图片",
+      "failed": "分享图没能生成，换个浏览器再试试。"
+    }
+  }
+}

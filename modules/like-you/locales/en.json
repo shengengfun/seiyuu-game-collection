@@ -1,0 +1,46 @@
+{
+  "likeYou": {
+    "title": "I Like You",
+    "kicker": "MY FAVORITE NINE",
+    "intro": "Nine rounds, two photos each - just pick the one you like more. After nine rounds the list is yours.",
+    "step1": "Each round draws two voice actresses you have not seen yet; the one you pick takes a seat.",
+    "step2": "The other one drops out and never comes back.",
+    "step3": "Nine rounds and you are done - the draw comes from {{total}} candidates, so who shows up is pure luck.",
+    "start": "Start picking",
+    "projects": {
+      "title": "Only these franchises (untick the ones you have not seen)",
+      "hint": "{{count}} candidates in the pool right now; keeping them all ticked means every franchise.",
+      "tooFew": "Only {{count}} candidates - you need at least {{target}} to fill every seat."
+    },
+    "hud": {
+      "round": "Round {{round}} / {{target}}",
+      "picked": "Picked {{count}} / {{target}}"
+    },
+    "openHint": "Keep the one you like more - she takes a seat.",
+    "feedback": {
+      "admit": "{{winner}} takes a seat; {{loser}} is out."
+    },
+    "continue": "Next round",
+    "result": {
+      "title": "My favorite nine",
+      "subtitle": "These {{count}} are my favorites.",
+      "shareTitle": "I Like You - my favorite nine",
+      "shareSummary": "I picked my favorite {{count}} voice actresses. Let's see whose list is more niche.",
+      "restart": "Pick again"
+    },
+    "poster": {
+      "kicker": "MY FAVORITE NINE",
+      "title": "I Like You",
+      "subtitle": "My {{count}} favorites",
+      "statLine": "{{total}} candidates · {{target}} seats",
+      "hint": "homoto-akina.top - Seiyuu Intel Station",
+      "qrCaption": "Scan to play",
+      "open": "Make a poster",
+      "building": "Rendering…",
+      "label": "Poster preview",
+      "saveHint": "Tap Download to save the image; on a phone you can also long-press it, then send it to friends on QQ or WeChat.",
+      "download": "Download image",
+      "failed": "The poster could not be rendered - please try another browser."
+    }
+  }
+}

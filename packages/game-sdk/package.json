@@ -1,0 +1,41 @@
+{
+  "name": "@seiyuu/game-sdk",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "小游戏模块协议与宿主共享能力（i18n / 认证 / 主题 / API / 分享图 / 通用组件）",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@seiyuu/shared": "workspace:*",
+    "axios": "^1.7.9",
+    "i18next": "^26.3.6",
+    "lucide-react": "^1.25.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^17.0.10",
+    "react-router-dom": "^6.28.1",
+    "socket.io-client": "^4.8.1",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^29.1.1",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.9"
+  }
+}

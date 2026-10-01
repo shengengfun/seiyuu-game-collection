@@ -1,0 +1,669 @@
+{
+  "seiyuuAgency": {
+    "title": "Voice Agency Sim",
+    "kicker": "VOICE AGENCY SIM",
+    "intro": "You have a brand-new agency, and one contract to make somebody famous.",
+    "rule1": "Each month pick one of several jobs and send one talent; the wrong pairing usually flops.",
+    "rule2": "Signing rookies costs money, and a star on your books will catch a bigger agency's eye.",
+    "rule3": "An exhausted talent flops at anything, so training and rest are not dead cards.",
+    "rule4": "One item per month, so decide who benefits before you use it; put two talents together and they can take unit-only work.",
+    "rule5": "Events hit during the contract and demand a call; some options are gambles that settle on the spot.",
+    "rule6": "Your talents draw a monthly salary, so do the maths before signing anyone.",
+    "start": "Open the agency",
+    "preferredTitle": "Signing preference (up to two)",
+    "preferredCount": "{{count}} / 2 picked",
+    "preferredHint": "Voice actresses from these franchises show up more often - both in your starting roster and at auditions.",
+    "originTitle": "Agency type",
+    "origins": {
+      "legendary": {
+        "name": "Established agency",
+        "desc": "All three start as veterans with high stats who can take big jobs at once - but wages run thirty percent higher."
+      },
+      "academy": {
+        "name": "Training academy",
+        "desc": "Start with thirty-five percent more budget, cheaper wages and faster growth; everyone on the books is a rookie."
+      },
+      "rookie": {
+        "name": "Rookie camp",
+        "desc": "Two extra candidates every audition and cheaper signings, plus one more manager point - but the starting stats are low and have to be built up."
+      },
+      "boutique": {
+        "name": "Indie studio",
+        "desc": "The least money and the lowest wages, but the boss coaches in person: three extra manager points."
+      }
+    },
+    "difficultyTitle": "Difficulty",
+    "lengthTitle": "Contract length",
+    "lengths": {
+      "short": {
+        "name": "One year",
+        "desc": "{{months}} months, quick - good for a first run."
+      },
+      "standard": {
+        "name": "Two years",
+        "desc": "{{months}} months, enough to grow rookies and meet a few big events."
+      },
+      "long": {
+        "name": "Three years",
+        "desc": "{{months}} months, a slower build; you can even form two units."
+      }
+    },
+    "agent": {
+      "title": "Manager points",
+      "hint": "{{total}} points, up to {{max}} per stat - and you can leave some unspent and just open the agency.",
+      "even": "Distribute evenly",
+      "clear": "Clear",
+      "left": "{{left}} points left",
+      "linked": "{{total}} points set from your code",
+      "linkHint": "Got a SeiValue result code? Paste it in and your four axis scores decide where the points go.",
+      "linkPlaceholder": "Paste a code, e.g. F95734-1a-k3f9z2qx",
+      "linkLabel": "SeiValue result code",
+      "link": "Import code",
+      "unlink": "Remove code",
+      "linkedOk": "Imported {{code}}",
+      "codeInvalid": "That code could not be read - check the whole string got copied.",
+      "attrs": {
+        "network": {
+          "name": "Connections",
+          "desc": "Easier to sign veterans, and easier to land transfers."
+        },
+        "eye": {
+          "name": "Eye for talent",
+          "desc": "Higher job success, and rookies are likelier to roll a good trait."
+        },
+        "negotiation": {
+          "name": "Negotiation",
+          "desc": "Bigger cuts on jobs and bigger payouts from events."
+        },
+        "care": {
+          "name": "Welfare",
+          "desc": "Talents recover stamina faster and lose loyalty more slowly."
+        }
+      }
+    },
+    "difficulties": {
+      "easy": {
+        "name": "Relaxed",
+        "desc": "Budget {{cash}}0k yen, reputation {{reputation}}, {{points}} manager points."
+      },
+      "normal": {
+        "name": "Standard",
+        "desc": "Budget {{cash}}0k yen, reputation {{reputation}}, {{points}} manager points."
+      },
+      "hard": {
+        "name": "Hardcore",
+        "desc": "Budget {{cash}}0k yen, reputation {{reputation}}, {{points}} manager points."
+      }
+    },
+    "hud": {
+      "month": "Month {{month}} / {{total}}",
+      "cash": "Budget {{value}}0k yen",
+      "reputation": "Reputation {{value}}",
+      "wage": "Wages {{value}}0k yen / month",
+      "actions": "Actions {{left}} / {{total}}"
+    },
+    "tiers": {
+      "entry": "Starter",
+      "normal": "Regular",
+      "hard": "Demanding",
+      "elite": "Top tier"
+    },
+    "stats": {
+      "skill": "Acting",
+      "vocal": "Singing",
+      "charm": "Charm",
+      "stamina": "Stamina",
+      "fame": "Fame",
+      "loyalty": "Loyalty",
+      "salary": "Wage",
+      "cash": "Budget",
+      "reputation": "Reputation"
+    },
+    "jobs": {
+      "commercial": "Commercial VO",
+      "animeSide": "Anime side role",
+      "radioShow": "Weekly radio",
+      "gameVoice": "Game voice",
+      "varietyShow": "Variety appearance",
+      "stageLive": "Live show",
+      "themeSong": "Theme song",
+      "animeLead": "Anime lead",
+      "movieDub": "Film dub",
+      "unitLive": "Unit stage",
+      "filmLead": "Feature film lead",
+      "worldTour": "World tour",
+      "awardHost": "Awards host",
+      "singingLesson": "Singing lesson",
+      "danceLesson": "Dance lesson",
+      "actingLesson": "Acting lesson",
+      "dubbingLesson": "Dubbing lesson",
+      "rest": "Agency break"
+    },
+    "offers": {
+      "title": "This month's offers",
+      "hint": "Tap an offer first, then tap a talent to send her.",
+      "safe": "Cannot fail",
+      "train": "{{stat}} +{{gain}}",
+      "trainAll": "All three +{{gain}}",
+      "unitOnly": "Unit only",
+      "pay": "{{value}}0k yen",
+      "fame": "Fame +{{value}}",
+      "needStat": "Needs {{stat}} ≥ {{value}}",
+      "chance": "Best {{value}}%",
+      "restHint": "Stamina +{{value}}"
+    },
+    "assign": {
+      "hint": "Pick an offer above, then decide who goes.",
+      "hintSelected": "Who takes this job?",
+      "pickOffer": "Pick an offer first, then a talent.",
+      "pickTalent": "Send",
+      "streak": "{{count}} flops in a row - the next job gets +{{value}}% success."
+    },
+    "talents": {
+      "title": "Your talent"
+    },
+    "talent": {
+      "veteran": "Veteran"
+    },
+    "unit": {
+      "title": "Units",
+      "count": "{{count}} / {{limit}}",
+      "form": "Form a unit ({{cost}}0k yen)",
+      "confirm": "Make it official ({{cost}}0k yen)",
+      "meta": "{{fame}} fame · {{members}} members · {{successes}} stage wins",
+      "disband": "Disband",
+      "pickHint": "Pick {{min}}–{{max}} talents for the unit; on unit jobs they perform together.",
+      "pick": "Pick",
+      "picked": "Picked",
+      "invalid": "Wrong number of talents, or not enough money.",
+      "nameLabel": "Unit name",
+      "namePlaceholder": "e.g. {{fallback}}"
+    },
+    "items": {
+      "title": "Item shop",
+      "available": "No item used this round",
+      "used": "Already used this round",
+      "usedList": "{{count}} used this round (usable again next round)",
+      "shopHint": "Buy as many as you like, any time - but each item can only be used once per round (before every job).",
+      "buy": "Buy",
+      "needBuy": "Buy it first",
+      "noCash": "Not enough budget for this one.",
+      "openShop": "Item shop",
+      "openBag": "Bag ({{count}})",
+      "ownedHint": "In hand: {{list}}.",
+      "bagHint": "Everything you bought - each item can be used once per round.",
+      "emptyBag": "The bag is empty - have a look at the shop.",
+      "groups": {
+        "growth": "Training",
+        "showbiz": "Promotion",
+        "safety": "Risk cover"
+      },
+      "cost": "{{value}}0k yen",
+      "pickTarget": "Pick a talent first, then choose an item.",
+      "use": "Use",
+      "trainingCamp": {
+        "name": "Training camp",
+        "desc": "A month of camp for the agency: acting and singing +6, stamina -8."
+      },
+      "businessTrip": {
+        "name": "Location trip",
+        "desc": "All jobs this month get +15% success."
+      },
+      "publicity": {
+        "name": "PR push",
+        "desc": "Reputation +8, and bad event effects are halved this month."
+      },
+      "healthCheck": {
+        "name": "Health retreat",
+        "desc": "Everyone gains stamina +20 and loyalty +4."
+      },
+      "giftTickets": {
+        "name": "Show tickets",
+        "desc": "One talent gains loyalty +18 and fame +3."
+      },
+      "photoShoot": {
+        "name": "Photo shoot",
+        "desc": "One talent gains fame +8, but loses stamina -10 and loyalty -4."
+      },
+      "coach": {
+        "name": "Private coach",
+        "desc": "One talent's weakest of acting / singing / charm goes up 10."
+      },
+      "scoutReport": {
+        "name": "Scout report",
+        "desc": "One extra candidate at the next audition."
+      },
+      "rerollOffers": {
+        "name": "Reroll offers",
+        "desc": "Swap every offer on the table for a fresh set."
+      },
+      "insurance": {
+        "name": "Flop insurance",
+        "desc": "One flop this month does not count."
+      },
+      "fanEvent": {
+        "name": "Fan meetup",
+        "desc": "Everyone gains fame +3, loyalty +3 and reputation +4; stamina -6."
+      }
+    },
+    "traits": {
+      "leadAura": {
+        "name": "Lead aura",
+        "desc": "Anime lead +12% success."
+      },
+      "radioVoice": {
+        "name": "Radio voice",
+        "desc": "Weekly radio +15% and theme song +10% - the voice is the asset."
+      },
+      "varietySense": {
+        "name": "Variety sense",
+        "desc": "Variety appearance +18%, and more fame from exposure."
+      },
+      "ironThroat": {
+        "name": "Iron throat",
+        "desc": "Stamina costs cut by a quarter; she keeps going."
+      },
+      "glassHeart": {
+        "name": "Glass heart",
+        "desc": "Loyalty drops faster than most, so she needs attention."
+      },
+      "workaholic": {
+        "name": "Workaholic",
+        "desc": "Pay +15% and faster growth, but higher stamina costs."
+      },
+      "mediaDarling": {
+        "name": "Media darling",
+        "desc": "Fame from exposure +25%."
+      },
+      "introvert": {
+        "name": "Introvert",
+        "desc": "Variety is a struggle, but side roles come easier."
+      },
+      "goldenEar": {
+        "name": "Golden ear",
+        "desc": "Anything suits her: +8% success on every job."
+      },
+      "stageBorn": {
+        "name": "Stage born",
+        "desc": "Live shows and unit stages land more often, and cost less stamina."
+      }
+    },
+    "titles": {
+      "leadMachine": {
+        "name": "Lead machine",
+        "desc": "Enough leads booked: lead success and pay both rise."
+      },
+      "radioQueen": {
+        "name": "Radio queen",
+        "desc": "A full run of radio: more radio success and more exposure."
+      },
+      "varietyStar": {
+        "name": "Variety star",
+        "desc": "Known for variety, so variety work is easier to land."
+      },
+      "ironBody": {
+        "name": "Iron body",
+        "desc": "High workload and high fame: stamina costs drop."
+      },
+      "comeback": {
+        "name": "Comeback kid",
+        "desc": "Plenty of flops and still standing: everything lands easier, loyalty included."
+      },
+      "unitSoul": {
+        "name": "Unit soul",
+        "desc": "Carried several unit stages: unit work is steadier and louder."
+      },
+      "newcomerKing": {
+        "name": "Newcomer king",
+        "desc": "Fame built within months of debut: exposure and success both up."
+      },
+      "livingLegend": {
+        "name": "Living legend",
+        "desc": "Fame at the top, so every offer gets easier to talk up."
+      },
+      "president": {
+        "name": "Voice actress president",
+        "desc": "The one who answered questions in parliament."
+      },
+      "cosmicNarrator": {
+        "name": "Cosmic narrator",
+        "desc": "The voice that narrated the Earth."
+      }
+    },
+    "recruit": {
+      "title": "Month {{month}} · rookie auditions",
+      "intro": "Three rookies want in, each with different stats.",
+      "sign": "Sign",
+      "skip": "Skip this one",
+      "refresh": "New faces ({{left}} left)",
+      "refreshEmpty": "No more rerolls this month.",
+      "cost": "Signing fee from {{value}}0k yen"
+    },
+    "logTitle": "Agency log",
+    "log": {
+      "open": "See all",
+      "count": "{{count}} entries",
+      "hint": "Every month is recorded: which jobs were taken, what they paid, and who improved.",
+      "net": "Budget {{value}}0k yen",
+      "lesson": "Learned the hard way +{{value}}",
+      "success": "{{name}} landed {{job}} and brought in {{amount}}0k yen.",
+      "fail": "{{name}} flopped on {{job}}; only {{amount}}0k yen came in.",
+      "training": "{{name}} joined in-house training and gained a little.",
+      "rest": "{{name}} rested a month and got her stamina back.",
+      "event": "Something happened.",
+      "recruit": "Signed a rookie.",
+      "leave": "{{name}} left the agency.",
+      "item": "Used {{item}}.",
+      "buy": "Bought {{item}} for {{amount}}0k yen.",
+      "title": "{{name}} unlocked the title “{{title}}”.",
+      "unit": "{{unit}} is formed.",
+      "wage": "Paid {{amount}}0k yen in wages.",
+      "wageLate": "Paid {{amount}}0k yen in wages and the account is running dry.",
+      "restBonus": "{{name}} took an agency break and kept practising: {{list}}."
+    },
+    "event": {
+      "kicker": "Sudden event",
+      "easterKicker": "Defining moment",
+      "target": "Involved: {{name}}",
+      "chance": "{{value}}% success",
+      "success": "It worked",
+      "failure": "It backfired",
+      "scopeAll": "Whole agency",
+      "scopeUnit": "Unit",
+      "willLeave": "She may leave",
+      "willSign": "Signs on the spot",
+      "noCash": "Not enough money"
+    },
+    "events": {
+      "viral": {
+        "title": "A clip of her went viral",
+        "desc": "Tens of thousands of views in a day; the manager says this does not come often.",
+        "options": {
+          "push": "Pour resources in",
+          "nothing": "Let it ride",
+          "risk": "Open a paid stream while it is hot"
+        }
+      },
+      "scandal": {
+        "title": "A weekly photographed her smoking late at night",
+        "desc": "It runs tomorrow morning; PR is waiting on your word.",
+        "options": {
+          "apologize": "Issue a statement",
+          "silent": "Stay quiet and let it pass",
+          "sue": "Sue the weekly"
+        }
+      },
+      "sick": {
+        "title": "Her throat is inflamed",
+        "desc": "The doctor wants at least two weeks off, but the schedule is already full.",
+        "options": {
+          "rest": "Give her a month off",
+          "push": "Push through this job"
+        }
+      },
+      "offer": {
+        "title": "A company names your agency",
+        "desc": "The work is due in three weeks and the pay is not generous.",
+        "options": {
+          "accept": "Take it",
+          "negotiate": "Push the price up",
+          "decline": "Turn it down"
+        }
+      },
+      "graduation": {
+        "title": "She wants to publish a photobook",
+        "desc": "The plan is on your desk, waiting for a signature.",
+        "options": {
+          "fund": "The agency fronts the money",
+          "selfFunded": "Let her pay for it",
+          "block": "Hold it back and keep her working"
+        }
+      },
+      "award": {
+        "title": "Shortlisted for a newcomer award",
+        "desc": "Judging is next month and there is still some PR budget left.",
+        "options": {
+          "campaign": "Spend on a campaign",
+          "nothing": "Let the work speak",
+          "attend": "Show up politely"
+        }
+      },
+      "poach": {
+        "title": "A major agency is poaching her",
+        "desc": "Their offer is thirty percent above what you pay.",
+        "options": {
+          "raise": "Raise her pay to keep her",
+          "letGo": "Let her go and take the fee",
+          "heart": "Appeal to her loyalty"
+        }
+      },
+      "flu": {
+        "title": "Flu sweeps the agency",
+        "desc": "Three people went down within a week.",
+        "options": {
+          "restAll": "Give everyone a week off",
+          "pushAll": "Keep the schedule as it is"
+        }
+      },
+      "variety": {
+        "title": "A regular variety slot opens",
+        "desc": "Prime time, but it takes two days of her week.",
+        "options": {
+          "accept": "Send her",
+          "pair": "Ask to bring another of yours",
+          "decline": "Politely decline"
+        }
+      },
+      "songDeal": {
+        "title": "A label wants to release her single",
+        "desc": "Good terms, but it means a month without a break.",
+        "options": {
+          "sign": "Sign for a single",
+          "mini": "Do a mini album only",
+          "decline": "Not this time"
+        }
+      },
+      "voiceAward": {
+        "title": "Shortlisted for a voice award",
+        "desc": "The heaviest prize in the industry, and her name is on the list.",
+        "options": {
+          "campaign": "Spend on a campaign (1200k yen)",
+          "nothing": "Do nothing and wait for the vote",
+          "party": "Throw the agency a party"
+        }
+      },
+      "veteranLeaving": {
+        "title": "A veteran hands in her notice",
+        "desc": "She says she wants to try something else; the letter is on your desk.",
+        "options": {
+          "raise": "Raise her pay (1800k yen)",
+          "studio": "Open her a private studio (2600k yen)",
+          "talk": "No money talk - just talk to her",
+          "letGo": "Let her go and take the fee"
+        }
+      },
+      "transferIn": {
+        "title": "Someone from another agency wants in",
+        "desc": "Her contract is ending, and her manager sounded you out first.",
+        "options": {
+          "sign": "Sign her outright (1500k yen)",
+          "trial": "Trial her for a month",
+          "decline": "Politely decline"
+        }
+      },
+      "freelanceDeal": {
+        "title": "A freelancer is looking for work",
+        "desc": "Experienced, unsigned, and open to terms.",
+        "options": {
+          "accept": "Book her per job",
+          "exclusive": "Ask for first refusal",
+          "decline": "Not this one"
+        }
+      },
+      "movieLead": {
+        "title": "A film wants her as the lead",
+        "desc": "They heard her audition tape; the slot is open for a month.",
+        "options": {
+          "take": "Take it and gamble",
+          "support": "Step back and take a supporting role",
+          "decline": "Protect her schedule"
+        }
+      },
+      "gossip": {
+        "title": "A weekly is writing about her romance",
+        "desc": "Nothing is printed yet, and they asked if you want to comment.",
+        "options": {
+          "confirm": "Confirm it openly",
+          "deny": "Issue a denial",
+          "silent": "Say nothing"
+        }
+      },
+      "backlash": {
+        "title": "An old post resurfaces",
+        "desc": "A screenshot has made the rounds and the comments are rough.",
+        "options": {
+          "apologize": "Apologise",
+          "explain": "Write a long explanation",
+          "offline": "Take her offline for a while"
+        }
+      },
+      "industryWinter": {
+        "title": "The industry hits a cold spell",
+        "desc": "Several projects cut budgets at once; next year looks colder.",
+        "options": {
+          "cut": "Cut costs and wait it out",
+          "invest": "Invest against the tide (1200k yen)"
+        }
+      },
+      "taxAudit": {
+        "title": "The tax office comes auditing",
+        "desc": "They want the last two years of books, and you know what is in them.",
+        "options": {
+          "pay": "Pay what is owed (1600k yen)",
+          "lawyer": "Hire a tax lawyer (900k yen)",
+          "fight": "Fight it and argue the details"
+        }
+      },
+      "unitClash": {
+        "title": "Trouble inside the unit",
+        "desc": "Two of them have not spoken for a week over who stands centre.",
+        "options": {
+          "mediate": "Step in and mediate",
+          "sideMajor": "Make one of them the lead",
+          "split": "Let them work apart for a while"
+        }
+      },
+      "unitBreak": {
+        "title": "The unit is falling apart",
+        "desc": "Someone has quietly asked a manager about leaving.",
+        "options": {
+          "save": "Pay to keep them (2000k yen)",
+          "rebrand": "Rebrand and restart",
+          "break": "Disband on the spot"
+        }
+      },
+      "unitStage": {
+        "title": "A unit stage offer arrives",
+        "desc": "Venue and promoter are set; it is up to them.",
+        "options": {
+          "accept": "Take it and gamble on a full house",
+          "small": "Start with a small venue",
+          "decline": "Not in this condition"
+        }
+      },
+      "easterPresident": {
+        "title": "She is on a presidential ballot",
+        "desc": "None of it makes sense, but her name is really on the list.",
+        "options": {
+          "accept": "Run, then",
+          "decline": "Decline politely"
+        }
+      },
+      "easterNasa": {
+        "title": "NASA asks her to narrate",
+        "desc": "They said they want a voice people trust.",
+        "options": {
+          "narrate": "Take it"
+        }
+      },
+      "easterTimeCover": {
+        "title": "Time wants her on the cover",
+        "desc": "The photographer is already at the door.",
+        "options": {
+          "cover": "Put her on the cover",
+          "refuse": "Nobody puts her on a cover"
+        }
+      },
+      "easterPrimeMinister": {
+        "title": "She is invited as a special advisor",
+        "desc": "A whole floor of officials is waiting on her word.",
+        "options": {
+          "advisor": "Go, then"
+        }
+      }
+    },
+    "awards": {
+      "title": "Awards of the year",
+      "breakout": "Breakout of the year",
+      "bestNewcomer": "Best newcomer",
+      "bestLead": "Best lead performance",
+      "busiest": "Perfect attendance",
+      "bestUnit": "Unit of the year",
+      "fanFavorite": "Fan favourite",
+      "line": "{{award}}: {{name}}"
+    },
+    "report": {
+      "title": "Annual report",
+      "score": "Agency reputation",
+      "top": "Signboard talent",
+      "easterTitle": "Defining moments this year",
+      "unitsTitle": "Our units",
+      "unitLine": "{{name}} · fame {{fame}} · {{successes}} wins",
+      "statsTitle": "Season totals",
+      "statsJobs": "Jobs booked",
+      "statsTitles": "Titles unlocked",
+      "statsItems": "Items used",
+      "statsUnits": "Units formed",
+      "statsWage": "Wages paid",
+      "stats": "{{items}} items · {{titles}} titles · {{units}} units · {{wage}}0k yen in wages",
+      "eggNote": "Those once-in-a-lifetime moments show up about {{value}}% of the time - lucky you if you get one.",
+      "highlight": "Year highlights",
+      "none": "A quiet year - nothing worth printing.",
+      "restart": "Run another year",
+      "shareTitle": "Voice Agency Annual Report",
+      "shareSummary": "My agency graded {{grade}}, with reputation {{score}}."
+    },
+    "modal": {
+      "shop": "Item shop",
+      "bag": "Bag",
+      "log": "Agency log",
+      "save": "Saves"
+    },
+    "save": {
+      "open": "Saves",
+      "loadTitle": "Load a save",
+      "auto": "Autosave",
+      "slot": "Slot {{slot}}",
+      "empty": "Empty slot",
+      "meta": "Month {{month}} / {{total}} · {{cash}}0k yen · reputation {{reputation}}",
+      "monthShort": "month {{month}}",
+      "save": "Save",
+      "load": "Load",
+      "delete": "Delete",
+      "saved": "Saved to slot {{slot}}."
+    },
+    "poster": {
+      "kicker": "VOICE AGENCY SIM",
+      "title": "Annual report",
+      "subtitle": "{{jobs}} jobs over {{months}} months",
+      "hint": "homoto-akina.top · Seiyuu Intel Station",
+      "qrCaption": "Scan to play",
+      "open": "Make a poster",
+      "building": "Rendering…",
+      "label": "Poster preview",
+      "saveHint": "Tap Download to save the image; on a phone you can also long-press it, then send it to friends on QQ or WeChat.",
+      "download": "Download image",
+      "failed": "The poster could not be rendered - please try another browser."
+    }
+  }
+}

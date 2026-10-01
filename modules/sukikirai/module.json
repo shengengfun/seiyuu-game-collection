@@ -1,0 +1,26 @@
+{
+  "id": "sukikirai",
+  "path": "/seiyuu-sukikirai",
+  "order": 50,
+  "color": "#5b9dff",
+  "icon": "Scale",
+  "title": {
+    "zh": "喜欢或讨厌",
+    "en": "Like or Dislike",
+    "ja": "好き嫌い"
+  },
+  "description": {
+    "zh": "给声优投喜欢或讨厌，投完才看得到红蓝比例和大家的短评。",
+    "en": "Vote like or dislike - the ratio and everyone's comments unlock after you vote.",
+    "ja": "好きか嫌いかを投票。投票すると紅青の割合とみんなのコメントが見られます。"
+  },
+  "entry": "index.js",
+  "styles": [
+    "style.css"
+  ],
+  "locales": {
+    "zh": "locales/zh.json",
+    "en": "locales/en.json",
+    "ja": "locales/ja.json"
+  }
+}

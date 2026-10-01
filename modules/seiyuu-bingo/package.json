@@ -1,0 +1,37 @@
+{
+  "name": "@seiyuu/module-seiyuu-bingo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "声优粉宾果 —— 声优情报站小游戏模块",
+  "scripts": {
+    "dev": "vite build --watch --mode development",
+    "build": "vite build",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@seiyuu/game-sdk": "workspace:*",
+    "@seiyuu/shared": "workspace:*",
+    "axios": "^1.7.9",
+    "i18next": "^26.3.6",
+    "lucide-react": "^1.25.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^17.0.10",
+    "react-router-dom": "^6.28.1",
+    "socket.io-client": "^4.8.1",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^29.1.1",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.9"
+  }
+}

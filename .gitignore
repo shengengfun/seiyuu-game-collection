@@ -17,6 +17,7 @@ shadow.data/
 !.env.example
 tmp/
 server/tmp/
+package/
 _package/
 cloudflared/*.exe
 .DS_Store
@@ -29,3 +30,15 @@ compose.override.yaml
 .claude/
 rule.txt
 AGENTS.md
+
+# ---- 模块化新增：这些都是构建产物，不入库 ----
+# 每个游戏模块自己的构建产物
+modules/*/dist/
+# 主站用于运行时加载的模块产物与 vendor 共享依赖
+apps/host/public/modules/
+apps/host/vendor/
+# vendor 构建脚本的临时入口/探测目录
+apps/host/.vendor/
+apps/host/.vendor-probe/
+# 主站托管的后端数据库
+apps/server/data/

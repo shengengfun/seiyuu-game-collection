@@ -1,0 +1,49 @@
+{
+  "seiyuuNetwork": {
+    "title": "声優関係マップ",
+    "kicker": "SEIYUU RELATION MAP",
+    "intro": "1 人の声優からスタートして、同じ作品で共演した人、同じ事務所の人、同じ企画の人を選びます。正解するたびにマップにノードが増えていきます。",
+    "rule1": "毎回 4 人の候補が出て、本当につながっているのは 1 人だけです。",
+    "rule2": "間違えるとハートが 1 つ減り、{{lives}} 個なくなると終了します。",
+    "rule3": "つなげる相手が尽きたときも終了。終わったら縦長の関係マップ画像を作れます。",
+    "start": "つなぎはじめる",
+    "graphLabel": "つながった声優関係マップ",
+    "hud": {
+      "lives": "残りハート {{count}}",
+      "connected": "{{count}} 人つながった"
+    },
+    "question": {
+      "coStar": "{{name}} と同じ作品に出演したのは？",
+      "sameAgency": "{{name}} と同じ事務所なのは？",
+      "sameProject": "{{name}} と同じ企画なのは？"
+    },
+    "feedback": {
+      "correctCoStar": "正解：{{a}} と {{b}} は『{{works}}』で共演しています。",
+      "correctSameAgency": "正解：{{a}} と {{b}} はどちらも {{agency}} 所属です。",
+      "correctSameProject": "正解：{{a}} と {{b}} は同じ {{project}} です。",
+      "wrong": "残念、正解は {{name}} です。"
+    },
+    "continue": "次へ",
+    "result": {
+      "title": "私の声優関係マップ",
+      "network": "{{count}} 人の声優をつなげました。",
+      "restart": "もう一度"
+    },
+    "shareTitle": "声優関係マップ",
+    "shareSummary": "{{count}} 人の女性声優の関係マップをつなげました。",
+    "poster": {
+      "kicker": "SEIYUU RELATION MAP",
+      "title": "声優関係マップ",
+      "subtitle": "{{count}} 人とつながりました",
+      "statLine": "つながった人数 {{members}} · 残りライフ {{lives}}",
+      "hint": "homoto-akina.top · 声優情報ステーション",
+      "qrCaption": "スキャンして遊ぶ",
+      "open": "シェア画像を作る",
+      "building": "生成中…",
+      "label": "シェア画像のプレビュー",
+      "saveHint": "「画像を保存」で端末に保存できます。スマホなら画像を長押しして保存し、QQ や WeChat で送れます。",
+      "download": "画像を保存",
+      "failed": "シェア画像を生成できませんでした。別のブラウザで試してください。"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "seiyuu-resume",
+  "path": "/seiyuu-resume",
+  "order": 100,
+  "color": "#8ecae6",
+  "icon": "ScanSearch",
+  "title": {
+    "zh": "声优简历找茬",
+    "en": "Résumé Spotter",
+    "ja": "声優プロフィール間違い探し"
+  },
+  "description": {
+    "zh": "给一份声优资料卡，里面混进了错信息，限时把被改错的栏目点出来。",
+    "en": "A voice actress profile card with a few planted mistakes - find the tampered rows before the clock runs out.",
+    "ja": "声優のプロフィールカードに紛れた間違いを、時間内にタップして見つけ出す。"
+  },
+  "entry": "index.js",
+  "styles": [
+    "style.css"
+  ],
+  "locales": {
+    "zh": "locales/zh.json",
+    "en": "locales/en.json",
+    "ja": "locales/ja.json"
+  }
+}

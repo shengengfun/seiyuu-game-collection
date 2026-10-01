@@ -1,0 +1,215 @@
+{
+  "songQuiz": {
+    "title": "Song Quiz",
+    "subtitle": "30-second preview · pick the right title",
+    "guestHint": "No login needed — scores stay on this device. Log in and they join the site-wide board.",
+    "intro": "Thirteen franchises (Touhou doujin circles, Kamen Rider and Ultraman split by Showa/Heisei/Reiwa, decade hits, internet memes, popular IPs, maimai DX originals and its collab songs) and 72 groups. Every song plays a 30-second preview before you pick the right title out of four. Four difficulties: Easy (5 songs), Normal (10), Hard (20) and Expert, which draws from the whole catalog with three hearts — every miss costs one. Faster answers score more, and the site-wide board weights scores by difficulty.",
+    "guide": "You can replay the preview as often as you like. Wrong answers stay hidden until you submit.",
+    "tabs": {
+      "single": "Single player",
+      "multi": "Multiplayer"
+    },
+    "difficultyLabel": "Difficulty",
+    "difficulties": {
+      "count": "{{count}} songs",
+      "hearts": "{{count}} hearts",
+      "weight": "difficulty ×{{weight}}",
+      "easy": {
+        "name": "Easy",
+        "desc": "Five songs, a two-minute round — good for learning the ropes."
+      },
+      "normal": {
+        "name": "Normal",
+        "desc": "Ten songs per round, the usual pace."
+      },
+      "hard": {
+        "name": "Hard",
+        "desc": "Twenty songs in a row — how well do you really know them?"
+      },
+      "expert": {
+        "name": "Expert",
+        "desc": "The whole catalog at random. A wrong answer costs a heart; when all three are gone the round ends.",
+        "pool": "whole catalog"
+      }
+    },
+    "franchiseLabel": "Choose a franchise",
+    "groupLabel": "Choose a group",
+    "songsCount": "{{count}} songs",
+    "heartsLeft": "{{count}} hearts left",
+    "expert": {
+      "right": "Correct!",
+      "wrong": "Wrong — the answer was {{answer}} by {{artist}}"
+    },
+    "poster": {
+      "perfect": "Perfect run",
+      "hits": "Songs you nailed"
+    },
+    "multi": {
+      "intro": "One shared question set, one shared playlist, played live: previews play on each device and whoever recognizes the song first scores.",
+      "modeLabel": "Mode",
+      "roundsLabel": "Rounds",
+      "summary": "Room group: {{group}} ({{songs}} songs) · {{rounds}} questions per game",
+      "create": "Create a room",
+      "match": "Quick match",
+      "joinLabel": "Got a room code?",
+      "codePlaceholder": "5-character room code",
+      "join": "Join room",
+      "roomCode": "Room code",
+      "copyCode": "Copy room code",
+      "leave": "Leave room",
+      "waitingHint": "Send the room code to a friend — with {{count}} players online and ready the host can start.",
+      "host": "Host",
+      "offline": "Offline",
+      "ready": "Ready",
+      "notReady": "Not ready",
+      "setReady": "Ready",
+      "cancelReady": "Not ready",
+      "start": "Start match",
+      "allowListen": "{{seconds}}s of audio this round",
+      "answered": "Answered",
+      "thinking": "Thinking",
+      "waitingOthers": "Locked in — waiting for the others…",
+      "nextHint": "Next question in a few seconds.",
+      "overTitle": "Final standings",
+      "waitingHost": "Waiting for the host to start the next game…",
+      "overNote": "The host can hit play again for a rematch, or leave and create a new room.",
+      "modes": {
+        "rush": {
+          "name": "Speed race",
+          "desc": "Full 30-second preview, and the fastest correct answer earns a bonus."
+        },
+        "reveal": {
+          "name": "Progressive reveal",
+          "desc": "Starts at five seconds and grows by three each round — the less you hear, the more you win."
+        }
+      },
+      "errors": {
+        "INVALID_CODE": "Room codes are 5 letters or digits (no I / O / 0 / 1).",
+        "RATE_LIMITED": "Too many actions in a row — give it a moment.",
+        "ALREADY_IN_ROOM": "You are already in another room. Leave it first.",
+        "ROOM_NOT_FOUND": "That room no longer exists.",
+        "ROOM_FULL": "That room is full.",
+        "ROOM_IN_PROGRESS": "This game already started — try the next one.",
+        "STALE_CONNECTION": "This account is connected elsewhere; reload the page.",
+        "NOT_READY": "Someone is not ready yet.",
+        "NOT_WAITING": "You cannot change ready state right now.",
+        "FORBIDDEN": "Only the host can do that.",
+        "NOT_FINISHED": "This game is still running.",
+        "TOO_MANY_ROOMS": "The server has too many rooms right now — try again shortly.",
+        "INVALID_PAYLOAD": "Those settings are not valid.",
+        "INTERNAL_ERROR": "Server error, please try again.",
+        "UNKNOWN": "That did not work — please try again."
+      },
+      "note": "If you drop out, you can rejoin the room and keep playing - the round is not restarted."
+    },
+    "rank": {
+      "sending": "Submitting your score…",
+      "submitted": "On the board — you are #{{rank}}.",
+      "submittedNoRank": "On the board — check the leaderboard for your rank.",
+      "failed": "Could not submit the score; the round can still be restored from its result code.",
+      "guest": "Log in and your score joins the site-wide board."
+    },
+    "leaderboard": {
+      "title": "Site-wide leaderboard",
+      "loading": "Loading the leaderboard…",
+      "failed": "Could not load the leaderboard.",
+      "empty": "Nobody has posted a score at this difficulty yet — be the first.",
+      "meta": "Weighted ×{{weight}} by difficulty · best round per player · {{count}}",
+      "group": "From",
+      "mine": "You are #{{rank}} with a best of {{score}}."
+    },
+    "start": "Start the quiz",
+    "quit": "Leave this round",
+    "loading": "Preparing previews…",
+    "loadFailed": "Could not load the previews. Check your connection and try again.",
+    "retry": "Retry",
+    "previewUnavailable": "No preview available for this one — guess anyway.",
+    "progress": "Question {{current}} / {{total}}",
+    "answered": "{{count}} answered",
+    "skippedNote": "{{count}} question(s) left unanswered — unanswered counts as wrong.",
+    "play": "Play",
+    "pause": "Pause",
+    "replay": "Replay",
+    "prev": "Previous",
+    "next": "Next",
+    "submit": "Submit",
+    "result": {
+      "scoreLabel": "Score",
+      "accuracyLabel": "Accuracy",
+      "avgLabel": "Avg per song",
+      "fastestLabel": "Fastest",
+      "heartsLabel": "Hearts left",
+      "correctLabel": "{{correct}} / {{total}} correct",
+      "durationLabel": "Time",
+      "gradeLabel": "Grade",
+      "review": "Songs in this round",
+      "yourAnswer": "You picked",
+      "unanswered": "(unanswered)",
+      "codeLabel": "Result code",
+      "codeHint": "Share this code, or paste it here, to replay the same round and see the answers.",
+      "copy": "Copy result",
+      "copyDone": "Copied to clipboard.",
+      "copyFailed": "Copy failed — select the code above manually.",
+      "retry": "Play again",
+      "retrySame": "Replay this round",
+      "change": "Change group"
+    },
+    "grades": {
+      "S": {
+        "title": "Catalog veteran",
+        "comment": "Accuracy {{accuracy}} — this catalog holds no secrets for you."
+      },
+      "A": {
+        "title": "Seasoned fan",
+        "comment": "Accuracy {{accuracy}} — you know the main songs and the unit songs alike, with only a few deep cuts missing."
+      },
+      "B": {
+        "title": "Solid fan",
+        "comment": "Accuracy {{accuracy}} — you recognize the hits; a few more album listens will help."
+      },
+      "C": {
+        "title": "Getting started",
+        "comment": "Accuracy {{accuracy}} — you know about half. Rewatching the anime will boost this a lot."
+      },
+      "D": {
+        "title": "Newcomer",
+        "comment": "Accuracy {{accuracy}} — start with this project's best-of album."
+      }
+    },
+    "gradeLabels": {
+      "S": "S",
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D"
+    },
+    "query": {
+      "title": "Check a result",
+      "hint": "Paste a result code someone shared to see that round's answers.",
+      "placeholder": "e.g. S|N|nijigasaki|1ab|2m|3x9k1",
+      "submit": "Check",
+      "invalid": "That result code is not valid."
+    },
+    "rules": {
+      "trigger": "How to play",
+      "title": "How Song Quiz works",
+      "close": "Close",
+      "quick": {
+        "listen": "One 30-second preview",
+        "listenText": "Apple provides a single 30-second preview per song, and you can replay it as often as you like.",
+        "options": "Pick one of four",
+        "optionsText": "Choose the right title out of four; the correct slot is reshuffled every round.",
+        "speed": "Faster scores higher",
+        "speedText": "Answering inside the 30 seconds earns a speed bonus that shrinks as time passes.",
+        "hearts": "Three hearts on Expert",
+        "heartsText": "Expert draws from the whole catalog; a wrong answer costs a heart and the round ends once all three are gone."
+      },
+      "singleTitle": "Single player",
+      "multiTitle": "Multiplayer",
+      "scoreTitle": "Scoring",
+      "scoreText": "A correct answer is worth 100 points plus up to 60 in speed bonus, multiplied by the difficulty factor; a flawless round adds 250 × factor.",
+      "rankTitle": "Leaderboard",
+      "rankText": "Each difficulty has its own board and only your best round counts. Guest rounds never appear."
+    }
+  }
+}

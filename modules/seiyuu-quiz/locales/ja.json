@@ -1,0 +1,152 @@
+{
+  "seiyuuQuiz": {
+    "title": "声優クイズ",
+    "contribute": {
+      "open": "問題を投稿",
+      "title": "問題を投稿",
+      "intro": "{{name}} について知っていることを 1 問にしてみましょう。管理者の承認後、みんなの問題集に追加されます。",
+      "loginRequired": "ログインすると問題を投稿できます",
+      "promptLabel": "問題文",
+      "promptPlaceholder": "例：彼女は『LoveLive!』でどの役を演じた？",
+      "optionsLabel": "選択肢（2～4 つ、正解の位置は自由）",
+      "optionPlaceholder": "選択肢 {{index}}",
+      "addOption": "選択肢を追加",
+      "removeOption": "選択肢 {{index}} を削除",
+      "answerLabel": "正解",
+      "levelLabel": "難易度",
+      "explainLabel": "解説",
+      "explainPlaceholder": "間違えたときに正しい内容を伝える文章",
+      "sourceLabel": "出典（任意）",
+      "sourcePlaceholder": "例：公式サイト / Wiki",
+      "submit": "投稿する",
+      "submitting": "送信中...",
+      "cancel": "キャンセル",
+      "done": "投稿しました。管理者の審査をお待ちください",
+      "errors": {
+        "prompt": "問題文は 6 文字以上必要です",
+        "options": "重複しない選択肢を 2 つ以上入力してください",
+        "explain": "解説を入力してください（2 文字以上）"
+      }
+    },
+    "subtitle": "声優ごとの個人問題集 · 1 セット 12 問",
+    "intro": "まず受けたい声優を検索し、その人の問題集から出題します（経歴・趣味・特技・逸話・人間関係など）。解答中は正誤を伏せ、全問答えたあとに得点・等級・講評をまとめて表示します。",
+    "guide": "各問は選択肢 4 つ・正解は 1 つだけ。問題集は声優ごとに 1 セットで、経験・趣味・特技・逸話に加えて出演作品の役どころも出題されます。クイックと本気モードはランダム抽題、徹底モードは全問に挑戦。間違えた問題には解説が付きます。",
+    "modeLabel": "モード",
+    "modes": {
+      "fast": {
+        "name": "クイック・{{count}} 問",
+        "desc": "問題集からランダム出題。3 分ほどで 1 周できます。",
+        "meta": "ランダム出題・毎回問題が変わります"
+      },
+      "love": {
+        "name": "真爱モード・{{count}} 問",
+        "desc": "16 問でしっかりチェック。本気で推している人向け。",
+        "meta": "ランダム出題・16 問"
+      },
+      "full": {
+        "name": "単推しモード・全問",
+        "desc": "その声優の問題集を最初から最後まで。マニアックな話も出ます。",
+        "meta": "問題集の全問・順番どおり"
+      }
+    },
+    "groups": {
+      "nijigasaki": "虹ヶ咲学園スクールアイドル同好会",
+      "mus": "μ's",
+      "aqours": "Aqours（ラブライブ！サンシャイン!!）",
+      "liella": "Liella!（ラブライブ！スーパースター!!）",
+      "hasunosora": "蓮ノ空女学院スクールアイドルクラブ",
+      "lovelive": "ラブライブ！シリーズ（その他）",
+      "mygo": "MyGO!!!!!",
+      "avemujica": "Ave Mujica",
+      "bandori": "BanG Dream!（他のバンド）",
+      "pjsk": "プロジェクトセカイ カラフルステージ！ feat. 初音ミク",
+      "revuestar": "少女☆歌劇 レヴュースタァライト",
+      "idolmaster": "アイドルマスターシリーズ",
+      "gakuen": "学園アイドルマスター",
+      "umamusume": "ウマ娘 プリティーダービー",
+      "d4dj": "D4DJ",
+      "extra": "ゲスト"
+    },
+    "expandAll": "すべて展開",
+    "collapseAll": "すべて閉じる",
+    "groupFilter": "企画で絞り込む",
+    "groupAll": "すべて",
+    "searchLabel": "声優を検索",
+    "searchPlaceholder": "名前・日本語表記・ローマ字・役名",
+    "searchCount": "{{count}} 件が一致",
+    "searchEmpty": "一致する声優がいません。別のキーワードをお試しください。",
+    "bankCount": "全 {{count}} 問",
+    "startLabel": "開始",
+    "progress": "第 {{current}} / {{total}} 問",
+    "answered": "{{count}} 問解答済み",
+    "skippedNote": "未解答が {{count}} 問あります。不正解として集計されます。",
+    "prev": "前へ",
+    "next": "次へ",
+    "backToFirst": "最初の問題へ",
+    "submit": "提出する",
+    "quit": "中断する",
+    "levels": {
+      "easy": "やさしい",
+      "normal": "ふつう",
+      "hard": "むずかしい"
+    },
+    "gradeLabels": {
+      "S": "S",
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D"
+    },
+    "grades": {
+      "S": {
+        "title": "筋金入りの単推し",
+        "comment": "{{name}} のことを検索エンジンより知っていますね。この量で満点は、配信を 1 コマずつ見た証拠です。"
+      },
+      "A": {
+        "title": "ベテラン声優ファン",
+        "comment": "{{name}} への理解は十分。落としたのは一番マニアックな数問だけです。"
+      },
+      "B": {
+        "title": "しっかり者のファン",
+        "comment": "主要な情報は押さえています。細かい部分はもう一押し。"
+      },
+      "C": {
+        "title": "入ったばかりの新人",
+        "comment": "方向は合っていますが、{{name}} の面白さはまだ掘りきれていません。"
+      },
+      "D": {
+        "title": "まだ他人",
+        "comment": "{{name}} とはまだあまり仲良くなさそうですね。この問題集から知っていくのも良いきっかけです。"
+      }
+    },
+    "query": {
+      "title": "成績を照会",
+      "hint": "成績コードを貼り付けると、その回の結果を再現できます。",
+      "placeholder": "Q|F|maeda-kaori|…",
+      "submit": "照会",
+      "invalid": "成績コードが無効です。すべてコピーしたか確認してください。"
+    },
+    "result": {
+      "scoreLabel": "得点",
+      "gradeLabel": "等級",
+      "accuracyLabel": "正答率",
+      "hitsTitle": "当てた問題",
+      "durationLabel": "所要時間",
+      "correctLabel": "{{correct}} / {{total}} 問正解",
+      "perfect": "全問正解！この問題集を完全に制覇しました。",
+      "breakdown": "難易度別の結果",
+      "review": "誤答の振り返り",
+      "reviewEmpty": "誤答はありません。",
+      "yourAnswer": "あなたの解答",
+      "correctAnswer": "正解",
+      "unanswered": "未解答",
+      "codeLabel": "成績コード",
+      "codeHint": "このコードを貼り付けると同じ回を再現できます。",
+      "copy": "成績をコピー",
+      "copyDone": "クリップボードにコピーしました",
+      "copyFailed": "コピーに失敗しました。手動で選択してください",
+      "retry": "もう一度",
+      "change": "別の声優"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "__MODULE_ID__",
+  "path": "__MODULE_PATH__",
+  "order": 900,
+  "color": "#8ecae6",
+  "icon": "Sparkles",
+  "title": {
+    "zh": "__MODULE_TITLE_ZH__",
+    "en": "__MODULE_TITLE_EN__",
+    "ja": "__MODULE_TITLE_JA__"
+  },
+  "description": {
+    "zh": "__MODULE_DESC_ZH__",
+    "en": "__MODULE_DESC_EN__",
+    "ja": "__MODULE_DESC_JA__"
+  },
+  "entry": "index.js",
+  "styles": ["style.css"],
+  "locales": {
+    "zh": "locales/zh.json",
+    "en": "locales/en.json",
+    "ja": "locales/ja.json"
+  }
+}

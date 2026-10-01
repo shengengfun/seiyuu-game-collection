@@ -1,0 +1,26 @@
+{
+  "id": "song-quiz",
+  "path": "/song-quiz",
+  "order": 60,
+  "color": "#ff9f5b",
+  "icon": "Music",
+  "title": {
+    "zh": "猜歌",
+    "en": "Song Quiz",
+    "ja": "曲あてクイズ"
+  },
+  "description": {
+    "zh": "听 30 秒试听猜歌名，十三个企划（含车万、特摄与年代金曲）四选一，四档难度、多人对战、全站排行榜。",
+    "en": "Guess the song from a 30-second preview: thirteen franchises, four difficulties, online races and a site-wide board.",
+    "ja": "30 秒の試聴で曲名を当てる。13 企画・4 段階の難易度・対戦モード・全体ランキング。"
+  },
+  "entry": "index.js",
+  "styles": [
+    "style.css"
+  ],
+  "locales": {
+    "zh": "locales/zh.json",
+    "en": "locales/en.json",
+    "ja": "locales/ja.json"
+  }
+}

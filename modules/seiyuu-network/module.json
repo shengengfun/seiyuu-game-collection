@@ -1,0 +1,26 @@
+{
+  "id": "seiyuu-network",
+  "path": "/seiyuu-network",
+  "order": 85,
+  "color": "#4fd1c5",
+  "icon": "Network",
+  "title": {
+    "zh": "声优关系网",
+    "en": "Seiyuu Relation Map",
+    "ja": "声優関係マップ"
+  },
+  "description": {
+    "zh": "从一位声优出发，选出和 TA 共演过的人，答对一次就连上一条线，看关系网能连多大。",
+    "en": "Start from one voice actress and pick who she has shared a work with; every correct pick adds a link to your relation map.",
+    "ja": "1 人の声優からスタートし、共演した相手を選んでいく。正解のたびにマップが広がります。"
+  },
+  "entry": "index.js",
+  "styles": [
+    "style.css"
+  ],
+  "locales": {
+    "zh": "locales/zh.json",
+    "en": "locales/en.json",
+    "ja": "locales/ja.json"
+  }
+}

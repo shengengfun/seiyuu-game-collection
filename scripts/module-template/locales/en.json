@@ -1,0 +1,6 @@
+{
+  "__MODULE_NS__": {
+    "title": "__MODULE_TITLE_EN__",
+    "placeholder": "Module is ready. Put the gameplay in src/index.tsx."
+  }
+}

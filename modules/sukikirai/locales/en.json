@@ -1,0 +1,126 @@
+{
+  "sukikirai": {
+    "title": "Like or Dislike",
+    "kicker": "SUKI KIRAI · 好き嫌い",
+    "subtitle": "Voice-actress like / dislike board — results unlock after you vote",
+    "intro": "Vote “like” or “dislike” on the voice actresses in our roster — the red / blue split and everyone's comments unlock once you vote.",
+    "guide": "Up to 5 votes per person per day. Switching sides keeps the count; tomorrow you can add more.",
+    "stats": {
+      "totalVotes": "{{count}} votes so far",
+      "voted": "You voted {{count}} / {{total}}",
+      "locked": "Vote to see the split and comments"
+    },
+    "searchLabel": "Search voice actresses",
+    "searchPlaceholder": "Name, Japanese name, romaji or a signature role",
+    "searchEmpty": "No match — try another keyword.",
+    "groupFilter": "Filter by franchise",
+    "groupAll": "All",
+    "projects": {
+      "lovelive": "LoveLive!",
+      "bangdream": "BanG Dream!",
+      "pjsk": "Project SEKAI",
+      "idolmaster": "THE IDOLM@STER",
+      "gakuen": "Gakuen Idolmaster",
+      "umamusume": "Uma Musume",
+      "revuestar": "Revue Starlight",
+      "d4dj": "D4DJ"
+    },
+    "mineCount": "{{choice}} ×{{votes}}",
+    "choice": {
+      "like": "Like",
+      "dislike": "Dislike"
+    },
+    "votesUnit": "votes",
+    "quota": {
+      "pill": "{{remaining}} votes left today",
+      "pillEmpty": "Out of votes for today",
+      "resetHint": "Resets in {{hours}}h",
+      "resetHintMinutes": "Resets in {{minutes}}min"
+    },
+    "vote": {
+      "done": "Voted “{{choice}}”",
+      "added": "Added another vote ({{count}} / {{limit}})",
+      "updated": "Vote changed",
+      "saved": "Saved",
+      "count": "{{votes}} / {{limit}} today",
+      "hint": "Pick a side and the red / blue split plus everyone's comments unlock.",
+      "mine": "You voted “{{choice}}”: {{votes}} / {{limit}} votes today ({{total}} in total), {{remaining}} vote(s) left today. Click the same side for another vote, the other side to switch.",
+      "full": "Today's {{limit}} votes are in ({{choice}}, {{total}} in total). Click the other side to switch — the count stays, and you can add more tomorrow."
+    },
+    "rangeLabel": "Board period",
+    "range": {
+      "day": "Daily",
+      "week": "Weekly",
+      "month": "Monthly",
+      "all": "All time"
+    },
+    "emptyDay": "Nobody has voted yet — be the first and pick someone.",
+    "emptyRange": "No votes in this period yet.",
+    "hideEggs": "Hide easter eggs",
+    "easterEgg": "Egg",
+    "eggHint": "A hidden option unlocked by lifetime votes — easter-egg entries stay hidden by default",
+    "reasons": {
+      "title": "Reason (optional)",
+      "hint": "Pick one reason — you can switch or remove it later. Skipping is fine too.",
+      "mine": "Your reason: {{reason}}",
+      "none": "You have not picked a reason yet.",
+      "clear": "Remove reason",
+      "cleared": "Reason removed",
+      "statsTitle": "Why others voted",
+      "empty": "Nobody picked a reason yet.",
+      "other": "Other",
+      "people": "{{count}}",
+      "like": {
+        "voice": "The voice",
+        "acting": "Great acting",
+        "looks": "Looks / presence",
+        "character": "Because of a role",
+        "personality": "Likeable personality",
+        "live": "Live / stage",
+        "growth": "Effort and growth",
+        "vibe": "No idea why, I just do"
+      },
+      "dislike": {
+        "voice": "Voice is not my thing",
+        "acting": "Acting / singing falls flat",
+        "looks": "Looks are not my thing",
+        "character": "A role ruined it",
+        "personality": "Personality / behaviour",
+        "overpush": "Over-pushed by the label",
+        "hype": "The fandom puts me off",
+        "vibe": "No idea why, I just don't"
+      }
+    },
+    "detail": {
+      "back": "Back to the board",
+      "notFound": "This voice actress is not in the roster.",
+      "reprChars": "Signature roles: "
+    },
+    "result": {
+      "lockedTitle": "Vote to see the result",
+      "lockedHint": "So the numbers cannot sway your choice, the split and comments stay locked until you vote.",
+      "barLabel": "{{like}}% like, {{dislike}}% dislike",
+      "count": "{{count}} · {{percent}}%",
+      "total": "{{count}} votes in total"
+    },
+    "comments": {
+      "title": "Comments",
+      "guide": "Sign in and vote first (up to {{count}} characters).",
+      "comingSoon": "Comments are being prepared — check the split for now.",
+      "empty": "Nobody has commented yet.",
+      "placeholder": "Why do you like / dislike this voice actress?",
+      "counter": "{{count}} / {{max}} characters",
+      "submit": "Post comment",
+      "sending": "Posting...",
+      "published": "Posted",
+      "done": "Submitted — waiting for review",
+      "rejected": "That text was blocked automatically. Please rephrase and try again.",
+      "needVote": "You need to vote before commenting.",
+      "loginRequired": "Sign in to post a comment",
+      "errors": {
+        "body": "Write at least 2 characters"
+      }
+    },
+    "footnote": "{{count}} voice actresses in the roster; the board ranks by total votes."
+  }
+}
