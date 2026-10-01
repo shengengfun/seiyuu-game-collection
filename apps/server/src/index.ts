@@ -106,7 +106,18 @@ async function main() {
 
   // index.html 含内联脚本(主题开关、启动屏进度),CSP 不放开 unsafe-inline,
   // 而是从实际服务的 HTML 计算各内联脚本的 sha256 哈希加入 script-src
-  const clientDist = path.resolve(__dirname, '../../client/dist');
+  //
+  // 前端产物目录有两种布局，两种都要能跑：
+  //   仓库内：apps/server/dist → ../../host/dist（即 apps/host/dist）
+  //   容器内：server/dist      → ../../client/dist（镜像里把 host 产物拷成 client/dist）
+  const clientDistCandidates = [
+    path.resolve(__dirname, '../../host/dist'),
+    path.resolve(__dirname, '../../client/dist'),
+    path.resolve(__dirname, '../../../apps/host/dist'),
+  ];
+  const clientDist =
+    clientDistCandidates.find((dir) => fs.existsSync(path.join(dir, 'index.html'))) ??
+    clientDistCandidates[0];
   const clientIndexPath = path.join(clientDist, 'index.html');
   const rawIndexHtml = fs.existsSync(clientIndexPath)
     ? fs.readFileSync(clientIndexPath, 'utf8')

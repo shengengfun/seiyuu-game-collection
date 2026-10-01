@@ -29,7 +29,11 @@ jobs:
           --health-timeout 3s
           --health-retries 10
     steps:
+      # 小游戏模块是 git submodule，不递归检出会拿到空的 modules/，
+      # 而模块是 pnpm workspace 成员，install 会直接失败。
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - uses: pnpm/action-setup@v4
         with:
           version: 11.13.1
@@ -50,6 +54,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - uses: docker/setup-buildx-action@v3
       - name: Log in to GHCR
         if: github.event_name != 'pull_request'

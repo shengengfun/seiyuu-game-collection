@@ -17,9 +17,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-// 本仓库根目录与「整合包」_package/ 下各有一份 client/public，两边都要同步。
+// 仓库根的 apps/host/public 与「整合包」_package/ 下各有一份，两边都要同步。
 const artifactTargets = [rootDir, path.join(rootDir, '_package')]
-  .map((base) => path.join(base, 'client', 'public', 'pow', 'csgofriberg_pow.wasm'))
+  .map((base) => path.join(base, 'apps', 'host', 'public', 'pow', 'csgofriberg_pow.wasm'))
   .filter((file, index) => index === 0 || fs.existsSync(path.dirname(path.dirname(file))));
 const builtWasm = path.join(
   rootDir,
